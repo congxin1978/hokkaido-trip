@@ -17,6 +17,25 @@ body{
   background:
     radial-gradient(1400px 700px at 10% -10%, #eaf4ff 0%, #f6fbff 36%, #ffffff 70%) no-repeat,
     linear-gradient(180deg,#eef8ff,#ffffff 26%, #ffffff 100%);
+}
+/* Home dark-warm theme */
+body.home-mode{
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #2a1a12 0%, #2e1c13 30%, #331f15 60%) no-repeat,
+    linear-gradient(180deg,#3b2419 0%, #3a2317 40%, #42271a 100%);
+  color:#f2e9e2;
+}
+body.home-mode .btn,
+body.home-mode .chev{ background:linear-gradient(180deg,#4a2a1d,#3d2318); border-color:#6b3a26; color:#ffeede }
+body.home-mode .btn::after{ box-shadow: inset 0 0 220px 60px rgba(255,156,105,.22) }
+body.home-mode .tag{ background:#40261a; border-color:#6b3a26; color:#ffe1c9 }
+body.home-mode header{ background:#2f1d1499; border-bottom-color:#5c3725; }
+body.home-mode .small, body.home-mode .lang button{ color:#f4e7dd }
+body.home-mode .lang button{ background:#3b2419; border-color:#6b3a26 }
+body.home-mode .lang .on{ background:#4a2a1d }
+body.home-mode .homebar .input, body.home-mode .homebar .wx{ background:#3b2419; border-color:#6b3a26 }
+body.home-mode .homebar .wx .item{ background:#2f1d14; border-color:#5c3725 }
+
   overflow-x:hidden;
 }
 /* Snow */
@@ -185,13 +204,18 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
            出發：札幌 08:30 · 地獄谷 → 大湯沼/奧之湯 → 溫泉街＋泉源公園足湯 · 入住：第一滝本館</p>
         <div class="row">
           <div class="card"><h2 class="i18n" data-zh="交通里程（冬季估算）" data-en="Driving (winter estimate)">交通里程（冬季估算）</h2>
-            <details open><summary class="i18n" data-zh="札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）" data-en="Sapporo → Jigokudani (≈115–120 km / 1h40–1h50)">札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）</summary><div class="kv i18n" data-zh="道央道；雪況保守。" data-en="Hokkaido Expressway; add buffer for snow.">道央道；雪況保守。</div></details>
+            <details open><summary class="i18n" data-zh="札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）" data-en="Sapporo → Jigokudani (≈115–120 km / 1h40–1h50)">札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）</summary><div class="kv i18n" data-zh="道央道；雪況保守。" data-en="Hokkaido Expressway; add buffer for snow.">道央道；雪況保守。<div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Noboribetsu+Jigokudani" target="_blank" rel="noopener">登別 地獄谷</a></li>
+<li><a href="https://maps.google.com/?q=Oyunuma+Noboribetsu" target="_blank" rel="noopener">大湯沼 / 奧之湯</a></li>
+<li><a href="https://maps.google.com/?q=Gensen+Park+Noboribetsu" target="_blank" rel="noopener">泉源公園（間歇泉）</a></li>
+<li><a href="https://maps.google.com/?q=Dai-ichi+Takimotokan" target="_blank" rel="noopener">第一滝本館</a></li></ul></div></div></details>
             <details><summary class="i18n" data-zh="地獄谷 → 大湯沼/奧之湯（約 3–4 km / 10 min）" data-en="Jigokudani → Oyunuma/Okunoyu (≈3–4 km / 10 min)">地獄谷 → 大湯沼/奧之湯（約 3–4 km / 10 min）</summary><div class="kv i18n" data-zh="山路慢行；木道步行。" data-en="Mountain road; boardwalk walking.">山路慢行；木道步行。</div></details>
             <details><summary class="i18n" data-zh="大湯沼 → 溫泉街/泉源公園（約 2 km / 6 min）" data-en="Oyunuma → Onsen Street/Gensen Park (≈2 km / 6 min)">大湯沼 → 溫泉街/泉源公園（約 2 km / 6 min）</summary><div class="kv i18n" data-zh="傍晚看間歇泉。" data-en="Geyser around dusk is atmospheric.">傍晚看間歇泉。</div></details>
             <details><summary class="i18n" data-zh="溫泉街 → 第一滝本館（約 0.5–1 km / 3–5 min）" data-en="Onsen Street → Dai‑ichi Takimotokan (≈0.5–1 km / 3–5 min)">溫泉街 → 第一滝本館（約 0.5–1 km / 3–5 min）</summary><div class="kv i18n" data-zh="Check‑in 泡湯。" data-en="Check‑in and soak.">Check‑in 泡湯。</div></details>
           </div>
           <div class="card"><h2 class="i18n" data-zh="用餐建議" data-en="Meal Suggestions">用餐建議</h2>
-            <details open><summary class="i18n" data-zh="午餐（登別）" data-en="Lunch (Noboribetsu)">午餐（登別）</summary><div class="kv i18n" data-zh="泉亭、味の大王（咖喱拉麵）。" data-en="Sentei, Aji no Daio (curry ramen).">泉亭、味の大王（咖喱拉麵）。</div></details>
+            <details open><summary class="i18n" data-zh="午餐（登別）" data-en="Lunch (Noboribetsu)">午餐（登別）</summary><div class="kv i18n" data-zh="泉亭、味の大王（咖喱拉麵）。" data-en="Sentei, Aji no Daio (curry ramen).">泉亭、味の大王（咖喱拉麵）。<div class="hr"><div class="hr"></div><div class="kv"><b class="i18n" data-zh="🍽 餐廳 / Dining" data-en="🍽 Dining">🍽 餐廳 / Dining</b><ul class="kv"><li><a href="https://maps.google.com/?q=Ramen+Dojo+New+Chitose+Airport" target="_blank" rel="noopener">拉麵道場（機場）</a></li>
+<li><a href="https://maps.google.com/?q=Kitakaro+Rokkatei+CTS" target="_blank" rel="noopener">北菓樓 / 六花亭</a></li></ul></div></div><div class="kv"><b class="i18n" data-zh="🍽 餐廳 / Dining" data-en="🍽 Dining">🍽 餐廳 / Dining</b><ul class="kv"><li><a href="https://maps.google.com/?q=Sentei+Noboribetsu" target="_blank" rel="noopener">泉亭</a></li>
+<li><a href="https://maps.google.com/?q=Aji+no+Daio+Noboribetsu" target="_blank" rel="noopener">味の大王 登別</a></li></ul></div></div></details>
             <details><summary class="i18n" data-zh="下午茶" data-en="Tea Break">下午茶</summary><div class="kv i18n" data-zh="溫泉蛋、甜點小店。" data-en="Onsen eggs, local sweets.">溫泉蛋、甜點小店。</div></details>
             <details><summary class="i18n" data-zh="晚餐" data-en="Dinner">晚餐</summary><div class="kv i18n" data-zh="第一滝本館 會席/自助。" data-en="Dai‑ichi Takimotokan kaiseki/buffet.">第一滝本館 會席/自助。</div></details>
           </div>
@@ -213,7 +237,8 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 1 抵達札幌 · 住宿" data-en="Day 1 Arrival Sapporo · Stay">Day 1 抵達札幌 · 住宿</h2>
       <p class="muted">CTS → 札幌民宿 · 晚上輕鬆散步</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=New+Chitose+Airport" target="_blank" rel="noopener">新千歲機場</a></li>
+<li><a href="https://maps.google.com/?q=Odori+Park+Sapporo" target="_blank" rel="noopener">札幌大通公園</a></li></ul></div></div></div></section>
 
   <!-- Day2 -->
   <section class="section" id="day2"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -227,7 +252,9 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 2 場外市場＋玩雪" data-en="Day 2 Seafood Market + Snow Fun">Day 2 場外市場＋玩雪</h2>
       <p class="muted">場外市場 → 滝野鈴蘭 → 狸小路</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=%E6%9C%AD%E5%B9%8C+%E5%A0%B4%E5%A4%96%E5%B8%82%E5%A0%B4" target="_blank" rel="noopener">札幌 場外市場 (Curb Market)</a></li>
+<li><a href="https://maps.google.com/?q=Takino+Suzuran+Hillside+National+Government+Park" target="_blank" rel="noopener">滝野すずらん丘陵公園 Snow World</a></li>
+<li><a href="https://maps.google.com/?q=Tanukikoji+Shopping+Street+Sapporo" target="_blank" rel="noopener">狸小路商店街</a></li></ul></div></div></div></section>
 
   <!-- Day3 -->
   <section class="section" id="day3"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -241,7 +268,10 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 3 旭山＋美瑛＋精靈露台" data-en="Day 3 Asahiyama + Biei + Ningle Terrace">Day 3 旭山＋美瑛＋精靈露台</h2>
       <p class="muted">旭山 → 美瑛 → 精靈露台</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Asahiyama+Zoo" target="_blank" rel="noopener">旭山動物園</a></li>
+<li><a href="https://maps.google.com/?q=Biei+Blue+Pond" target="_blank" rel="noopener">美瑛 青い池</a></li>
+<li><a href="https://maps.google.com/?q=Shirahige+Falls" target="_blank" rel="noopener">白鬚の滝</a></li>
+<li><a href="https://maps.google.com/?q=Ningle+Terrace" target="_blank" rel="noopener">富良野 ニングルテラス</a></li></ul></div></div></div></section>
 
   <!-- Day4 -->
   <section class="section" id="day4"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -255,7 +285,10 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 4 札幌輕鬆日" data-en="Day 4 Easy Sapporo Day">Day 4 札幌輕鬆日</h2>
       <p class="muted">白色戀人 → 神宮 → 鐘樓/電視塔</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Shiroi+Koibito+Park" target="_blank" rel="noopener">白い恋人パーク</a></li>
+<li><a href="https://maps.google.com/?q=Hokkaido+Jingu+Shrine" target="_blank" rel="noopener">北海道神宮</a></li>
+<li><a href="https://maps.google.com/?q=Sapporo+Clock+Tower" target="_blank" rel="noopener">札幌時計台</a></li>
+<li><a href="https://maps.google.com/?q=Sapporo+TV+Tower" target="_blank" rel="noopener">さっぽろテレビ塔</a></li></ul></div></div></div></section>
 
   <!-- Day5 -->
   <section class="section" id="day5"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -269,7 +302,10 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 5 小樽一日遊" data-en="Day 5 Otaru Day Trip">Day 5 小樽一日遊</h2>
       <p class="muted">運河 → 玻璃/音樂盒 → 三角市場 → 天狗山</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Otaru+Canal" target="_blank" rel="noopener">小樽運河</a></li>
+<li><a href="https://maps.google.com/?q=Otaru+Music+Box+Museum" target="_blank" rel="noopener">小樽オルゴール堂</a></li>
+<li><a href="https://maps.google.com/?q=Otaru+Sankaku+Market" target="_blank" rel="noopener">小樽市三角市場</a></li>
+<li><a href="https://maps.google.com/?q=Mt+Tengu+Ropeway" target="_blank" rel="noopener">天狗山ロープウェイ</a></li></ul></div></div></div></section>
 
   <!-- Day6 -->
   <section class="section" id="day6"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -283,7 +319,8 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 6 支笏湖＋Outlet" data-en="Day 6 Lake Shikotsu + Outlet">Day 6 支笏湖＋Outlet</h2>
       <p class="muted">支笏湖 → Outlet</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Lake+Shikotsu" target="_blank" rel="noopener">支笏湖</a></li>
+<li><a href="https://maps.google.com/?q=Chitose+Outlet+Mall+Rera" target="_blank" rel="noopener">千歳アウトレットモール・レラ</a></li></ul></div></div></div></section>
 
   <!-- Day7 -->
   <section class="section" id="day7"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -297,7 +334,8 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 7 札幌Chill" data-en="Day 7 Sapporo Chill">Day 7 札幌Chill</h2>
       <p class="muted">定山溪日歸 → 藻岩山（可選）</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Jozankei+Onsen" target="_blank" rel="noopener">定山溪溫泉</a></li>
+<li><a href="https://maps.google.com/?q=Mt+Moiwa+Ropeway" target="_blank" rel="noopener">藻岩山ロープウェイ</a></li></ul></div></div></div></section>
 
   <!-- Day9 -->
   <section class="section" id="day9"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
@@ -311,7 +349,8 @@ main{max-width:980px;margin:12px auto 100px;padding:0 12px; position:relative; z
       </div>
       <h2 class="i18n" data-zh="Day 9 返程" data-en="Day 9 Departure">Day 9 返程</h2>
       <p class="muted">登別 → 新千歲（16:00 航班）</p>
-    </div></div></section>
+    <div class="hr"></div><div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b><ul class="kv"><li><a href="https://maps.google.com/?q=Dai-ichi+Takimotokan" target="_blank" rel="noopener">第一滝本館</a></li>
+<li><a href="https://maps.google.com/?q=New+Chitose+Airport" target="_blank" rel="noopener">新千歲機場</a></li></ul></div></div></div></section>
 </main>
 
 <script>
@@ -431,6 +470,13 @@ async function loadWeather(){
     }
   }
 }
+
+// Toggle home dark theme and snow
+function updateHomeMode(){
+  if(location.hash && location.hash.startsWith('#day')){ document.body.classList.remove('home-mode'); }
+  else { document.body.classList.add('home-mode'); }
+}
+window.addEventListener('hashchange', updateHomeMode); updateHomeMode();
 
 // Snow only on detail pages
 function updateSnow(){
