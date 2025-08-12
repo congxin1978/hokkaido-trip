@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北海道之旅 · 詳細＋天氣（卡通版）</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a1424; --muted:#4a5f78; --ring:#00000026; --paper:#fffdf9; --r:26px;
+  --pink1:#ff8fb1; --pink2:#ffd1e6;
+  --wxbg:#e8f2ff; --wxline:#cde0ff; --wxcard:#ffffff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink);
+  font-family: "Baloo 2","Zen Maru Gothic", ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Inter, "PingFang HK","Noto Sans JP", Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #2a1a12 0%, #2e1c13 30%, #331f15 60%) no-repeat,
+    linear-gradient(180deg,#3b2419 0%, #3a2317 40%, #42271a 100%);
+  overflow-x:hidden;
+  color:#f2e9e2;
+}
+/* Sakura header */
+header{
+  position:sticky; top:0; z-index:10;
+  background: linear-gradient(180deg,var(--pink1),var(--pink2));
+  border-bottom:2px solid #ffd6e8;
+  box-shadow: 0 8px 18px #00000024;
+}
+header:before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.35;
+  background:
+    radial-gradient(16px 12px at 8% 40%, #fff, #0000 70%),
+    radial-gradient(12px 8px at 14% 48%, #fff, #0000 70%),
+    radial-gradient(16px 12px at 22% 42%, #fff, #0000 70%),
+    radial-gradient(10px 8px at 86% 36%, #fff, #0000 70%),
+    radial-gradient(16px 12px at 78% 46%, #fff, #0000 70%);
+  filter: blur(1px);
+}
+.bar{
+  max-width:1000px;margin:0 auto;padding:12px 14px;display:flex;align-items:center;gap:10px;justify-content:space-between
+}
+h1{
+  margin:0;font-size:22px;letter-spacing:.3px;color:#4a1a2a;
+  text-shadow:0 2px 0 #ffffffa8, 0 6px 16px #ff9ec244;
+}
+.small{color:#5e6f86;font-size:12px}
+.lang{display:flex; gap:8px; align-items:center}
+.lang button{border:2px solid #ffe0ec;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #00000012;font-weight:800}
+.lang .on{background:#ffe8f2}
+
+main{max-width:1000px;margin:12px auto 100px;padding:0 12px; position:relative; z-index:1}
+
+/* HOME manga background (non-copyright abstract silhouettes) */
+.manga-bg{
+  position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.16;
+  background:
+    radial-gradient(300px 420px at 15% 65%, #000000 0 60%, #0000 61%),
+    radial-gradient(280px 360px at 82% 60%, #000000 0 60%, #0000 61%),
+    radial-gradient(220px 280px at 55% 80%, #000000 0 60%, #0000 61%);
+  mix-blend-mode:overlay;
+}
+
+/* Staggered glass buttons */
+.grid{position:relative; display:grid;grid-template-columns:1fr;gap:18px; margin-top:10px; z-index:1}
+.btn{
+  position:relative; display:flex; align-items:center; justify-content:space-between; gap:12px;
+  text-decoration:none; color:#fff; padding:18px 16px; border-radius:28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 26px -10px #00000070, inset 0 0 0 1px rgba(255,255,255,.25);
+  font-weight:900; font-size:18px; overflow:hidden
+}
+.btn .left{display:flex;align-items:center;gap:12px}
+.emoji{font-size:24px; filter: drop-shadow(0 2px 2px #00000060)}
+.chev{font-weight:900; width:36px; height:36px; border-radius:12px; display:grid; place-items:center;
+  background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.35); color:#fff; box-shadow:0 8px 16px #00000050}
+.tag{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.28); color:#ffeede}
+.btn i.ear, .btn i.ear2{position:absolute; top:-12px; width:18px; height:18px; background:#fff3; border:2px solid #fff5; transform:rotate(45deg)}
+.btn i.ear{left:16px} .btn i.ear2{left:38px}
+.btn::after{content:""; position:absolute; inset:-4px; border-radius:36px; mix-blend-mode: screen; pointer-events:none; box-shadow: inset 0 0 220px 60px rgba(255,156,105,.22)}
+.decor{position:absolute; right:-12px; bottom:-10px; width:150px; height:150px; opacity:.28}
+.grid a:nth-child(odd){transform: translateX(8px) rotate(-1.2deg)}
+.grid a:nth-child(even){transform: translateX(-8px) rotate(1.2deg)}
+
+/* Weather cards (blue) */
+.homebar{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:10px 0 14px}
+.homebar .input{display:flex; align-items:center; gap:6px; border:1px solid #6da9ff; border-radius:12px; padding:6px 10px; background:#1f2b44; color:#dbe8ff}
+.homebar input[type="date"]{background:transparent; color:#dbe8ff; border:0; outline:none}
+
+.wx{margin:8px 0 12px; padding:10px; border:1px solid var(--wxline); border-radius:16px; background:#17325a;
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center; box-shadow:0 10px 18px #00000050; color:#e9f2ff}
+.wx .t{font-weight:900}
+.wx small{color:#b9d1ff}
+.wx .item{flex:1 1 160px; background:#0e2442; border:1px dashed #2b5aa8; border-radius:12px; padding:8px; color:#e9f2ff}
+.wx .item b{font-size:12px; color:#bfd6ff}
+.wx .v{font-size:18px; font-weight:800}
+
+/* Detail pages are light for readability */
+.section{display:none; margin-top:18px; color:#0b2240}
+.section:target{display:block}
+body.detail-mode{background:
+  radial-gradient(1400px 700px at 10% -10%, #eaf4ff 0%, #f6fbff 36%, #ffffff 70%) no-repeat,
+  linear-gradient(180deg,#eef8ff,#ffffff 26%, #ffffff 100%);
+  color:#0b2240;
+}
+
+.hero{
+  position:relative; border-radius: var(--r);
+  border:1px solid #dbe3f0; background:#fff; overflow:hidden;
+  box-shadow:0 24px 36px var(--ring), inset 0 0 0 2px #ffffffd9, inset 0 18px 28px #ffffffb8;
+}
+.hero .inner{padding:14px}
+.row{display:grid; gap:12px; grid-template-columns:1fr}
+.card{
+  position:relative; background: var(--paper);
+  border:1px solid #e6e1d5; border-radius: 22px;
+  box-shadow: 0 18px 30px var(--ring), inset 0 0 0 2px #ffffffd0, inset 0 18px 28px #ffffffa0;
+  padding:12px;
+}
+.card h2{margin:4px 0 6px; font-size:18px}
+.muted{color:#5a6a7e; margin:0 0 8px}
+.kv{font-size:13px; color:#2b3a52}
+details{background: radial-gradient(180% 120% at 50% 0%, #ffffff 0 50%, #fff7f2 100%); border:1px solid #e6e1d5; border-radius:16px; padding:10px;
+  box-shadow: 0 12px 20px var(--ring), inset 0 0 0 1px #ffffffd0, inset 0 18px 26px #ffffffc0, inset 0 -10px 20px #ffe7d0}
+summary{font-weight:900; cursor:pointer}
+.hr{height:1px;background:linear-gradient(90deg,#0000,#dfe9f5,#0000);margin:8px 0}
+
+/* Audio controls */
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;margin-bottom:4px}
+.controls input[type="file"]{font-size:12px}
+.controls .btn{border:1px solid #dbe3f0;background:#fff;border-radius:12px;padding:8px 12px;box-shadow:0 6px 12px #00000012;font-weight:800}
+.controls .vol{display:flex;align-items:center;gap:6px}
+.controls input[type="range"]{width:120px}
+.back{display:inline-block;margin:8px 0 0; text-decoration:none; color:#0b2240; border:1px solid #dbe3f0; background:#fff; padding:8px 12px; border-radius:12px; box-shadow:0 6px 10px #00000010}
+
+/* Snow */
+.snow, .snow:before, .snow:after{
+  position:fixed; pointer-events:none; top:0; left:0; right:0; bottom:0; content:"";
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff3, #fff0),
+    radial-gradient(3px 3px at 80px 120px, #fff5, #fff0),
+    radial-gradient(2px 2px at 180px 90px, #fff7, #fff0),
+    radial-gradient(2px 2px at 320px 40px, #fff6, #fff0),
+    radial-gradient(3px 3px at 460px 140px, #fff8, #fff0);
+  background-repeat:repeat;
+  animation: snow 24s linear infinite;
+  opacity:.85; z-index:0; display:none;
+}
+.snow.on, .snow.on:before, .snow.on:after{display:block}
+.snow:before{animation-duration: 36s; opacity:.65}
+.snow:after{animation-duration: 18s; opacity:.95}
+@keyframes snow{ from{transform:translateY(-10vh)} to{transform:translateY(10vh)} }
+
+@media (min-width:640px){ .row{grid-template-columns:repeat(2,1fr)} }
+</style>
+</head>
+<body>
+<div class="manga-bg" aria-hidden="true"></div>
+<div id="snow" class="snow" aria-hidden="true"></div>
+
+<header>
+  <div class="bar">
+    <h1 class="i18n" data-zh="北海道之旅 · 詳細＋天氣（卡通版）" data-en="Hokkaido Road Trip · Details + Weather (Cartoon)">北海道之旅 · 詳細＋天氣（卡通版）</h1>
+    <div class="lang">
+      <span class="small i18n" data-zh="語言 Language：" data-en="Language 語言：">語言 Language：</span>
+      <button id="btn-zh" class="on">中文</button>
+      <button id="btn-en">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME: start date + Sapporo weather bar -->
+  <div class="homebar" id="homebar">
+    <div class="input">
+      <span class="small i18n" data-zh="出發日期" data-en="Start Date">出發日期</span>
+      <input id="start" type="date" placeholder="2025-08-12">
+    </div>
+    <div class="wx" id="wx-home">
+      <div class="t i18n" data-zh="札幌 天氣（Day 1）" data-en="Sapporo Weather (Day 1)">札幌 天氣（Day 1）</div>
+      <small id="wx-home-date">—</small>
+      <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="wh-cond">—</div></div>
+      <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="wh-tmax">—</span> / <span id="wh-tmin">—</span> °C</div></div>
+      <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="wh-pop">—%</div></div>
+      <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="wh-wspd">—</span> km/h · <span id="wh-wdir">—</span></div></div>
+    </div>
+  </div>
+
+  <!-- HOME buttons -->
+  <div class="grid" id="home">
+    <a class="btn" href="#day1"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🛬</span><span class="i18n" data-zh="Day 1 抵達札幌 · 住宿" data-en="Day 1 Arrival Sapporo · Stay">Day 1 抵達札幌 · 住宿</span></div><span class="tag i18n" data-zh="CTS→札幌" data-en="CTS→Sapporo">CTS→札幌</span><span class="chev">›</span></a>
+    <a class="btn" href="#day2"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🦀</span><span class="i18n" data-zh="Day 2 場外市場＋玩雪" data-en="Day 2 Seafood Market + Snow Fun">Day 2 場外市場＋玩雪</span></div><span class="tag i18n" data-zh="蟹 × 滝野鈴蘭" data-en="Crab × Takino">蟹 × 滝野鈴蘭</span><span class="chev">›</span></a>
+    <a class="btn" href="#day3"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🐧</span><span class="i18n" data-zh="Day 3 旭山＋美瑛＋精靈露台" data-en="Day 3 Asahiyama + Biei + Ningle Terrace">Day 3 旭山＋美瑛＋精靈露台</span></div><span class="tag i18n" data-zh="長途日" data-en="Long Drive">長途日</span><span class="chev">›</span></a>
+    <a class="btn" href="#day4"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🍫</span><span class="i18n" data-zh="Day 4 札幌輕鬆日" data-en="Day 4 Easy Sapporo Day">Day 4 札幌輕鬆日</span></div><span class="tag i18n" data-zh="白色戀人·神宮" data-en="Shiroi Koibito · Shrine">白色戀人·神宮</span><span class="chev">›</span></a>
+    <a class="btn" href="#day5"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🏮</span><span class="i18n" data-zh="Day 5 小樽一日遊" data-en="Day 5 Otaru Day Trip">Day 5 小樽一日遊</span></div><span class="tag i18n" data-zh="運河·天狗山" data-en="Canal · Tenguyama">運河·天狗山</span><span class="chev">›</span></a>
+    <a class="btn" href="#day6"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">❄️</span><span class="i18n" data-zh="Day 6 支笏湖＋Outlet" data-en="Day 6 Lake Shikotsu + Outlet">Day 6 支笏湖＋Outlet</span></div><span class="tag i18n" data-zh="湖景·購物" data-en="Lake · Shopping">湖景·購物</span><span class="chev">›</span></a>
+    <a class="btn" href="#day7"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">🧖</span><span class="i18n" data-zh="Day 7 札幌Chill" data-en="Day 7 Sapporo Chill">Day 7 札幌Chill</span></div><span class="tag i18n" data-zh="定山溪·夜景" data-en="Jozankei · Night View">定山溪·夜景</span><span class="chev">›</span></a>
+    <a class="btn" href="#day8"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">♨️</span><span class="i18n" data-zh="Day 8 登別住宿（登別周邊）" data-en="Day 8 Noboribetsu Stay (Area)">Day 8 登別住宿（登別周邊）</span></div><span class="tag i18n" data-zh="地獄谷·大湯沼·溫泉街" data-en="Jigokudani · Oyunuma · Onsen Street">地獄谷·大湯沼·溫泉街</span><span class="chev">›</span></a>
+    <a class="btn" href="#day9"><i class="ear"></i><i class="ear2"></i><span class="decor"></span><div class="left"><span class="emoji">✈️</span><span class="i18n" data-zh="Day 9 返程" data-en="Day 9 Departure">Day 9 返程</span></div><span class="tag i18n" data-zh="登別→CTS" data-en="Noboribetsu→CTS">登別→CTS</span><span class="chev">›</span></a>
+  </div>
+
+  <!-- Detail: Day8 as full example -->
+  <section class="section" id="day8">
+    <a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+        <div class="wx">
+          <div class="t i18n" data-zh="登別 天氣（Day 8）" data-en="Noboribetsu Weather (Day 8)">登別 天氣（Day 8）</div>
+          <small id="wx-8-date">—</small>
+          <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w8-cond">—</div></div>
+          <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w8-tmax">—</span> / <span id="w8-tmin">—</span> °C</div></div>
+          <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w8-pop">—%</div></div>
+          <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w8-wspd">—</span> km/h · <span id="w8-wdir">—</span></div></div>
+        </div>
+
+        <h2 class="i18n" data-zh="Day 8 登別周邊 · Combo A" data-en="Day 8 Noboribetsu Area · Combo A">Day 8 登別周邊 · Combo A</h2>
+        <p class="muted i18n" data-zh="出發：札幌 08:30 · 地獄谷 → 大湯沼/奧之湯 → 溫泉街＋泉源公園足湯 · 入住：第一滝本館"
+           data-en="Depart: Sapporo 08:30 · Jigokudani → Oyunuma/Okunoyu → Onsen Street + Gensen Park Footbath · Stay: Dai‑ichi Takimotokan">
+           出發：札幌 08:30 · 地獄谷 → 大湯沼/奧之湯 → 溫泉街＋泉源公園足湯 · 入住：第一滝本館</p>
+        <div class="row">
+          <div class="card">
+            <h2 class="i18n" data-zh="交通里程（冬季估算）" data-en="Driving (winter estimate)">交通里程（冬季估算）</h2>
+            <details open><summary class="i18n" data-zh="札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）" data-en="Sapporo → Jigokudani (≈115–120 km / 1h40–1h50)">札幌 → 地獄谷（約 115–120 km / 1 h40–1 h50）</summary><div class="kv i18n" data-zh="道央道；雪況保守。" data-en="Hokkaido Expressway; add buffer for snow.">道央道；雪況保守。</div></details>
+            <details><summary class="i18n" data-zh="地獄谷 → 大湯沼/奧之湯（約 3–4 km / 10 min）" data-en="Jigokudani → Oyunuma/Okunoyu (≈3–4 km / 10 min)">地獄谷 → 大湯沼/奧之湯（約 3–4 km / 10 min）</summary><div class="kv i18n" data-zh="山路慢行；木道步行。" data-en="Mountain road; boardwalk walking.">山路慢行；木道步行。</div></details>
+            <details><summary class="i18n" data-zh="大湯沼 → 溫泉街/泉源公園（約 2 km / 6 min）" data-en="Oyunuma → Onsen Street/Gensen Park (≈2 km / 6 min)">大湯沼 → 溫泉街/泉源公園（約 2 km / 6 min）</summary><div class="kv i18n" data-zh="傍晚看間歇泉。" data-en="Geyser around dusk is atmospheric.">傍晚看間歇泉。</div></details>
+            <details><summary class="i18n" data-zh="溫泉街 → 第一滝本館（約 0.5–1 km / 3–5 min）" data-en="Onsen Street → Dai‑ichi Takimotokan (≈0.5–1 km / 3–5 min)">溫泉街 → 第一滝本館（約 0.5–1 km / 3–5 min）</summary><div class="kv i18n" data-zh="Check‑in 泡湯。" data-en="Check‑in and soak.">Check‑in 泡湯。</div></details>
+          </div>
+          <div class="card">
+            <h2 class="i18n" data-zh="用餐建議" data-en="Meal Suggestions">用餐建議</h2>
+            <details open><summary class="i18n" data-zh="午餐（登別）" data-en="Lunch (Noboribetsu)">午餐（登別）</summary><div class="kv i18n" data-zh="泉亭、味の大王（咖喱拉麵）。" data-en="Sentei, Aji no Daio (curry ramen).">泉亭、味の大王（咖喱拉麵）。</div></details>
+            <details><summary class="i18n" data-zh="下午茶" data-en="Tea Break">下午茶</summary><div class="kv i18n" data-zh="溫泉蛋、甜點小店。" data-en="Onsen eggs, local sweets.">溫泉蛋、甜點小店。</div></details>
+            <details><summary class="i18n" data-zh="晚餐" data-en="Dinner">晚餐</summary><div class="kv i18n" data-zh="第一滝本館 會席/自助。" data-en="Dai‑ichi Takimotokan kaiseki/buffet.">第一滝本館 會席/自助。</div></details>
+            <div class="hr"></div>
+            <div class="kv"><b class="i18n" data-zh="📍 地點 / Places" data-en="📍 Places">📍 地點 / Places</b>
+              <ul class="kv">
+                <li><a target="_blank" rel="noopener" href="https://maps.google.com/?q=Noboribetsu+Jigokudani">地獄谷 / Jigokudani</a></li>
+                <li><a target="_blank" rel="noopener" href="https://maps.google.com/?q=Oyunuma+Noboribetsu">大湯沼 / Oyunuma</a></li>
+                <li><a target="_blank" rel="noopener" href="https://maps.google.com/?q=Gensen+Park+Noboribetsu">泉源公園</a></li>
+                <li><a target="_blank" rel="noopener" href="https://maps.google.com/?q=Dai-ichi+Takimotokan">第一滝本館</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div></div>
+  </section>
+
+  <!-- Minimal other days (weather targets only) -->
+  <section class="section" id="day1"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="札幌 天氣（Day 1）" data-en="Sapporo Weather (Day 1)">札幌 天氣（Day 1）</div><small id="wx-1-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w1-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w1-tmax">—</span> / <span id="w1-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w1-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w1-wspd">—</span> km/h · <span id="w1-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 1 抵達札幌 · 住宿" data-en="Day 1 Arrival Sapporo · Stay">Day 1 抵達札幌 · 住宿</h2>
+      <p class="muted i18n" data-zh="CTS → 札幌民宿 · 晚上輕鬆散步" data-en="CTS → Sapporo stay · easy evening walk">CTS → 札幌民宿 · 晚上輕鬆散步</p>
+    </div></div></section>
+
+  <section class="section" id="day2"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="札幌 天氣（Day 2）" data-en="Sapporo Weather (Day 2)">札幌 天氣（Day 2）</div><small id="wx-2-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w2-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w2-tmax">—</span> / <span id="w2-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w2-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w2-wspd">—</span> km/h · <span id="w2-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 2 場外市場＋玩雪" data-en="Day 2 Seafood Market + Snow Fun">Day 2 場外市場＋玩雪</h2>
+      <p class="muted i18n" data-zh="場外市場 → 滝野鈴蘭 → 狸小路" data-en="Curb Market → Takino Snow World → Tanukikoji">場外市場 → 滝野鈴蘭 → 狸小路</p>
+    </div></div></section>
+
+  <section class="section" id="day3"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="旭川 天氣（Day 3）" data-en="Asahikawa Weather (Day 3)">旭川 天氣（Day 3）</div><small id="wx-3-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w3-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w3-tmax">—</span> / <span id="w3-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w3-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w3-wspd">—</span> km/h · <span id="w3-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 3 旭山＋美瑛＋精靈露台" data-en="Day 3 Asahiyama + Biei + Ningle Terrace">Day 3 旭山＋美瑛＋精靈露台</h2>
+      <p class="muted i18n" data-zh="旭山 → 美瑛 → 精靈露台" data-en="Asahiyama → Biei → Ningle Terrace">旭山 → 美瑛 → 精靈露台</p>
+    </div></div></section>
+
+  <section class="section" id="day4"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="札幌 天氣（Day 4）" data-en="Sapporo Weather (Day 4)">札幌 天氣（Day 4）</div><small id="wx-4-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w4-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w4-tmax">—</span> / <span id="w4-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w4-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w4-wspd">—</span> km/h · <span id="w4-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 4 札幌輕鬆日" data-en="Day 4 Easy Sapporo Day">Day 4 札幌輕鬆日</h2>
+      <p class="muted i18n" data-zh="白色戀人 → 神宮 → 鐘樓/電視塔" data-en="Shiroi Koibito → Hokkaido Shrine → Clock/TV Tower">白色戀人 → 神宮 → 鐘樓/電視塔</p>
+    </div></div></section>
+
+  <section class="section" id="day5"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="小樽 天氣（Day 5）" data-en="Otaru Weather (Day 5)">小樽 天氣（Day 5）</div><small id="wx-5-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w5-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w5-tmax">—</span> / <span id="w5-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w5-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w5-wspd">—</span> km/h · <span id="w5-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 5 小樽一日遊" data-en="Day 5 Otaru Day Trip">Day 5 小樽一日遊</h2>
+      <p class="muted i18n" data-zh="運河 → 玻璃/音樂盒 → 三角市場 → 天狗山" data-en="Canal → Glass/Music Box → Sankaku Market → Mt. Tengu">運河 → 玻璃/音樂盒 → 三角市場 → 天狗山</p>
+    </div></div></section>
+
+  <section class="section" id="day6"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="千歲/支笏湖 天氣（Day 6）" data-en="Chitose/Shikotsu Weather (Day 6)">千歲/支笏湖 天氣（Day 6）</div><small id="wx-6-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w6-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w6-tmax">—</span> / <span id="w6-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w6-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w6-wspd">—</span> km/h · <span id="w6-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 6 支笏湖＋Outlet" data-en="Day 6 Lake Shikotsu + Outlet">Day 6 支笏湖＋Outlet</h2>
+      <p class="muted i18n" data-zh="支笏湖 → Outlet" data-en="Lake Shikotsu → Outlet">支笏湖 → Outlet</p>
+    </div></div></section>
+
+  <section class="section" id="day7"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="札幌 天氣（Day 7）" data-en="Sapporo Weather (Day 7)">札幌 天氣（Day 7）</div><small id="wx-7-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w7-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w7-tmax">—</span> / <span id="w7-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w7-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w7-wspd">—</span> km/h · <span id="w7-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 7 札幌Chill" data-en="Day 7 Sapporo Chill">Day 7 札幌Chill</h2>
+      <p class="muted i18n" data-zh="定山溪日歸 → 藻岩山（可選）" data-en="Jozankei day trip → Mt. Moiwa (optional)">定山溪日歸 → 藻岩山（可選）</p>
+    </div></div></section>
+
+  <section class="section" id="day9"><a class="back i18n" href="#home" data-zh="← 返回首頁" data-en="← Back to Home">← 返回首頁</a>
+    <div class="controls"><input class="file" type="file" accept="audio/*"><button class="btn play i18n" data-zh="▶︎ 播放 / 暫停" data-en="▶︎ Play / Pause">▶︎ 播放 / 暫停</button><div class="vol"><span>🔊</span><input class="range" type="range" min="0" max="1" step="0.01" value="0.6"></div><audio class="audio" preload="none" loop></audio></div>
+    <div class="hero"><div class="inner">
+      <div class="wx"><div class="t i18n" data-zh="千歲 天氣（Day 9）" data-en="Chitose Weather (Day 9)">千歲 天氣（Day 9）</div><small id="wx-9-date">—</small>
+        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w9-cond">—</div></div>
+        <div class="item"><b class="i18n" data-zh="最高 / 最低" data-en="Max / Min">最高 / 最低</b> <div class="v"><span id="w9-tmax">—</span> / <span id="w9-tmin">—</span> °C</div></div>
+        <div class="item"><b class="i18n" data-zh="降水機率" data-en="Precip Prob">降水機率</b> <div class="v" id="w9-pop">—%</div></div>
+        <div class="item"><b class="i18n" data-zh="風速 / 風向" data-en="Wind / Dir">風速 / 風向</b> <div class="v"><span id="w9-wspd">—</span> km/h · <span id="w9-wdir">—</span></div></div>
+      </div>
+      <h2 class="i18n" data-zh="Day 9 返程" data-en="Day 9 Departure">Day 9 返程</h2>
+      <p class="muted i18n" data-zh="登別 → 新千歲（16:00 航班）" data-en="Noboribetsu → CTS (16:00 flight)">登別 → 新千歲（16:00 航班）</p>
+    </div></div></section>
+</main>
+
+<script>
+// i18n dictionaries for weather codes and wind dir
+let currentLang = 'zh';
+const WMO_ZH = {0:'晴',1:'多雲(少)',2:'多雲(間歇)',3:'陰',45:'霧',48:'霧凍',51:'毛毛雨(輕)',53:'毛毛雨(中)',55:'毛毛雨(強)',56:'冰毛毛雨(輕)',57:'冰毛毛雨(強)',61:'小雨',63:'中雨',65:'大雨',66:'凍雨(輕)',67:'凍雨(強)',71:'小雪',73:'中雪',75:'大雪',77:'雪粒',80:'陣雨(輕)',81:'陣雨(中)',82:'陣雨(強)',85:'陣雪(輕)',86:'陣雪(強)',95:'雷雨',96:'雷雨(小冰雹)',99:'雷雨(大冰雹)'};
+const WMO_EN = {0:'Clear',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Depositing rime fog',51:'Drizzle (light)',53:'Drizzle (moderate)',55:'Drizzle (dense)',56:'Freezing drizzle (light)',57:'Freezing drizzle (dense)',61:'Rain (light)',63:'Rain (moderate)',65:'Rain (heavy)',66:'Freezing rain (light)',67:'Freezing rain (heavy)',71:'Snow (light)',73:'Snow (moderate)',75:'Snow (heavy)',77:'Snow grains',80:'Rain showers (light)',81:'Rain showers (moderate)',82:'Rain showers (violent)',85:'Snow showers (light)',86:'Snow showers (heavy)',95:'Thunderstorm',96:'Thunderstorm (slight hail)',99:'Thunderstorm (heavy hail)'};
+const dirText = (deg, lang='zh')=>{
+  const zh = ['北','北北東','北東','東北東','東','東南東','南東','南南東','南','南南西','南西','西南西','西','西北西','北西','北北西'];
+  const en = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+  const ix = Math.round(deg/22.5) % 16; return (lang==='en'?en:zh)[ix];
+};
+
+// Locations per day
+const LOC = {
+  home:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+  1:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+  2:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+  3:{name_zh:'旭川', name_en:'Asahikawa', lat:43.7706, lon:142.3650},
+  4:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+  5:{name_zh:'小樽', name_en:'Otaru', lat:43.1907, lon:141.0028},
+  6:{name_zh:'千歲/支笏湖', name_en:'Chitose/Shikotsu', lat:42.8209, lon:141.3923},
+  7:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+  8:{name_zh:'登別', name_en:'Noboribetsu', lat:42.4124, lon:141.1069},
+  9:{name_zh:'千歲', name_en:'Chitose', lat:42.7752, lon:141.6923}
+};
+
+// Helpers
+function qs(s,root=document){return root.querySelector(s)}
+function setText(id,v){const el=qs(id); if(el) el.textContent=v}
+function fmt(n){return (n==null||Number.isNaN(n))?'—':Math.round(n)}
+
+// Dates
+function getDates(startStr){
+  const start = new Date(startStr);
+  return [...Array(9)].map((_,i)=>{const d=new Date(start); d.setDate(start.getDate()+i); return d.toISOString().slice(0,10);});
+}
+function initStartDate(){
+  const input = qs('#start');
+  if(!input.value){
+    const t = new Date();
+    const y=t.getFullYear(), m=('0'+(t.getMonth()+1)).slice(-2), d=('0'+t.getDate()).slice(-2);
+    input.value = `${y}-${m}-${d}`;
+  }
+}
+
+// Weather fetch
+async function fetchDay(lat, lon, date, lang){
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`;
+  const r = await fetch(url); if(!r.ok) throw new Error('HTTP '+r.status);
+  const j = await r.json(); const idx=0; const code=j.daily.weather_code[idx];
+  const map = lang==='en'? WMO_EN : WMO_ZH;
+  return { code, cond: map[code]||code, tmax:j.daily.temperature_2m_max[idx], tmin:j.daily.temperature_2m_min[idx], pop:j.daily.precipitation_probability_max[idx], wspd:j.daily.wind_speed_10m_max[idx], wdir:j.daily.wind_direction_10m_dominant?.[idx] };
+}
+async function loadWeather(){
+  const lang = currentLang; const startStr = (qs('#start')?.value);
+  const dates = getDates(startStr);
+  // Home
+  setText('#wx-home-date', dates[0]);
+  try{ const d = await fetchDay(LOC.home.lat, LOC.home.lon, dates[0], lang);
+    setText('#wh-cond', d.cond); setText('#wh-tmax', fmt(d.tmax)); setText('#wh-tmin', fmt(d.tmin));
+    setText('#wh-pop', (d.pop??'—')+'%'); setText('#wh-wspd', fmt(d.wspd)); setText('#wh-wdir', d.wdir!=null? dirText(d.wdir, lang): '—');
+  }catch(e){ setText('#wh-cond', lang==='en'?'Failed to load':'無法取得'); }
+  // Details
+  for(let day=1; day<=9; day++){ const target=LOC[day]; const date=dates[day-1];
+    setText('#wx-'+day+'-date', date);
+    try{ const d = await fetchDay(target.lat, target.lon, date, lang);
+      setText('#w'+day+'-cond', d.cond); setText('#w'+day+'-tmax', fmt(d.tmax)); setText('#w'+day+'-tmin', fmt(d.tmin));
+      setText('#w'+day+'-pop', (d.pop??'—')+'%'); setText('#w'+day+'-wspd', fmt(d.wspd)); setText('#w'+day+'-wdir', d.wdir!=null? dirText(d.wdir, lang): '—');
+    }catch(e){ setText('#w'+day+'-cond', lang==='en'?'Failed to load':'無法取得'); }
+  }
+}
+
+// Modes & snow
+function updateModes(){
+  if(location.hash && location.hash.startsWith('#day')){ document.body.classList.add('detail-mode'); }
+  else { document.body.classList.remove('detail-mode'); }
+  const snow = document.getElementById('snow');
+  if(location.hash && location.hash.startsWith('#day')) snow.classList.add('on'); else snow.classList.remove('on');
+}
+window.addEventListener('hashchange', updateModes);
+
+// Audio controls
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.section').forEach(sec=>{
+    const file = sec.querySelector('.file'); const audio=sec.querySelector('.audio'); const play=sec.querySelector('.play'); const range=sec.querySelector('.range');
+    if(!file||!audio||!play||!range) return;
+    file.addEventListener('change', ()=>{ const f=file.files[0]; if(f){ audio.src=URL.createObjectURL(f); audio.load(); } });
+    play.addEventListener('click', async ()=>{ try{ if(audio.paused){ await audio.play(); play.textContent = currentLang==='en'?'⏸︎ Pause':'⏸︎ 暫停'; } else { audio.pause(); play.textContent=currentLang==='en'?'▶︎ Play / Pause':'▶︎ 播放 / 暫停'; } }catch(e){} });
+    range.addEventListener('input', ()=> audio.volume = range.value); audio.volume = range.value;
+  });
+});
+
+// i18n
+const applyLang = (lang)=>{
+  currentLang = lang;
+  document.querySelectorAll('.i18n').forEach(el=>{ const zh=el.getAttribute('data-zh'); const en=el.getAttribute('data-en'); if(lang==='en' && en) el.textContent=en; else if(zh) el.textContent=zh; });
+  document.getElementById('btn-zh').classList.toggle('on', lang==='zh');
+  document.getElementById('btn-en').classList.toggle('on', lang==='en');
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : 'zh-HK');
+  loadWeather();
+};
+
+document.getElementById('btn-zh').addEventListener('click', ()=>applyLang('zh'));
+document.getElementById('btn-en').addEventListener('click', ()=>applyLang('en'));
+document.getElementById('start').addEventListener('change', loadWeather);
+
+// Initial
+initStartDate();
+applyLang('zh');
+updateModes();
+loadWeather();
+</script>
+</body>
+</html>
