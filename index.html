@@ -3,20 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>北海道之旅 · 圖文行程（漫畫風 + 地圖 + 圖集）</title>
+<title>北海道之旅 · 完整版（漫畫風 · 圖集 + 地圖 + 天氣）</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{ --ink:#0a1424; --paper:#fffdf9; --ring:#00000026; --r:26px;
   --pink1:#ff8fb1; --pink2:#ffd1e6; --wxline:#cde0ff;
+  --blueBg:#17325a; --blueItem:#0e2442; --blueLine:#2b5aa8;
 }
 *{box-sizing:border-box} body{margin:0}
 /* Header */
-header{ position:sticky; top:0; z-index:10; background:linear-gradient(180deg,var(--pink1),var(--pink2));
+header{ position:sticky; top:0; z-index:20; background:linear-gradient(180deg,var(--pink1),var(--pink2));
   border-bottom:2px solid #ffd6e8; box-shadow:0 8px 18px #00000024; font-family:"Baloo 2","Zen Maru Gothic",ui-rounded,system-ui;
 }
-.bar{ max-width:1100px; margin:0 auto; padding:12px 14px; display:flex; align-items:center; gap:10px; justify-content:space-between }
+.bar{ max-width:1200px; margin:0 auto; padding:12px 14px; display:flex; align-items:center; gap:10px; justify-content:space-between }
 h1{ margin:0; font-size:22px; letter-spacing:.3px; color:#4a1a2a; text-shadow:0 2px 0 #ffffffa8, 0 6px 16px #ff9ec244}
-.lang{display:flex; gap:8px; align-items:center} .lang button{border:2px solid #ffe0ec;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #00000012;font-weight:800}
+.lang{display:flex; gap:8px; align-items:center}
+.lang button{border:2px solid #ffe0ec;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #00000012;font-weight:800}
 .lang .on{background:#ffe8f2}
 /* Home dark-warm */
 body.home{ background:
@@ -24,7 +26,7 @@ body.home{ background:
   linear-gradient(180deg,#3b2419 0%, #3a2317 40%, #42271a 100%);
   color:#f2e9e2; font-family:"Baloo 2","Zen Maru Gothic",ui-rounded,system-ui;
 }
-main{ max-width:1100px; margin:10px auto 100px; padding:0 12px; position:relative; z-index:1 }
+main{ max-width:1200px; margin:10px auto 120px; padding:0 12px; position:relative; z-index:1 }
 .manga-bg{ position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.16;
   background: radial-gradient(300px 420px at 15% 65%, #000 0 60%, #0000 61%),
              radial-gradient(280px 360px at 82% 60%, #000 0 60%, #0000 61%),
@@ -35,10 +37,10 @@ main{ max-width:1100px; margin:10px auto 100px; padding:0 12px; position:relativ
 .homebar{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:10px 0 14px}
 .homebar .input{display:flex; align-items:center; gap:6px; border:1px solid #6da9ff; border-radius:12px; padding:6px 10px; background:#1f2b44; color:#dbe8ff}
 .homebar input[type="date"]{background:transparent; color:#dbe8ff; border:0; outline:none}
-.wx{margin:8px 0 12px; padding:10px; border:1px solid var(--wxline); border-radius:16px; background:#17325a;
+.wx{margin:8px 0 12px; padding:10px; border:1px solid var(--wxline); border-radius:16px; background:var(--blueBg);
   display:flex; flex-wrap:wrap; gap:8px; align-items:center; box-shadow:0 10px 18px #00000050; color:#e9f2ff}
 .wx .t{font-weight:900} .wx small{color:#b9d1ff}
-.wx .item{flex:1 1 160px; background:#0e2442; border:1px dashed #2b5aa8; border-radius:12px; padding:8px; color:#e9f2ff}
+.wx .item{flex:1 1 160px; background:var(--blueItem); border:1px dashed var(--blueLine); border-radius:12px; padding:8px; color:#e9f2ff}
 .wx .item b{font-size:12px; color:#bfd6ff}
 .wx .v{font-size:18px; font-weight:800}
 /* Buttons */
@@ -78,9 +80,8 @@ summary{font-weight:900; cursor:pointer} .hr{height:1px;background:linear-gradie
 /* Gallery */
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .gallery figure{margin:0; border:1px solid #e6e1d5; border-radius:12px; overflow:hidden; background:#fff}
-.gallery img{width:100%; display:block; aspect-ratio:4/3; object-fit:cover}
+.gallery img{width:100%; display:block}
 .gallery figcaption{font-size:12px; padding:6px 8px; color:#445}
-.loadbtn{margin:8px 0; padding:8px 12px; border-radius:12px; border:1px solid #cbd6e6; background:#fff}
 /* Snow */
 .snow, .snow:before, .snow:after{ position:fixed; pointer-events:none; top:0; left:0; right:0; bottom:0; content:"";
   background-image: radial-gradient(2px 2px at 20px 30px, #fff3, #fff0),
@@ -100,7 +101,7 @@ summary{font-weight:900; cursor:pointer} .hr{height:1px;background:linear-gradie
 
 <header>
   <div class="bar">
-    <h1 class="i18n" data-zh="北海道之旅 · 網頁版（漫畫風）" data-en="Hokkaido Trip · Web (Cartoon)">北海道之旅 · 網頁版（漫畫風）</h1>
+    <h1 class="i18n" data-zh="北海道之旅 · 完整版（漫畫風）" data-en="Hokkaido Trip · Full (Cartoon)">北海道之旅 · 完整版（漫畫風）</h1>
     <div class="lang">
       <button id="btn-zh" class="on">中文</button>
       <button id="btn-en">English</button>
@@ -108,7 +109,8 @@ summary{font-weight:900; cursor:pointer} .hr{height:1px;background:linear-gradie
   </div>
 </header>
 
-<main>
+<main id="app">
+  <!-- Home widgets -->
   <div class="homebar">
     <div class="input"><span class="i18n" data-zh="出發日期" data-en="Start Date">出發日期</span> <input id="start" type="date"></div>
     <div class="wx" id="wx-home">
@@ -121,286 +123,344 @@ summary{font-weight:900; cursor:pointer} .hr{height:1px;background:linear-gradie
     </div>
   </div>
 
-  <!-- Day buttons -->
-  <div class="grid">
-    <a class="btn" href="#day3"><div class="left"><span class="emoji">🐧</span><span class="i18n" data-zh="Day 3 旭山＋美瑛＋精靈露台" data-en="Day 3 Asahiyama + Biei + Ningle Terrace">Day 3 旭山＋美瑛＋精靈露台</span></div><span class="tag">Long Drive</span><span class="chev">›</span></a>
-    <a class="btn" href="#day5"><div class="left"><span class="emoji">🏮</span><span class="i18n" data-zh="Day 5 小樽一日遊" data-en="Day 5 Otaru Day Trip">Day 5 小樽一日遊</span></div><span class="tag">Otaru</span><span class="chev">›</span></a>
-    <a class="btn" href="#day8"><div class="left"><span class="emoji">♨️</span><span class="i18n" data-zh="Day 8 登別周邊 · Combo A" data-en="Day 8 Noboribetsu Area · Combo A">Day 8 登別周邊 · Combo A</span></div><span class="tag">Onsen</span><span class="chev">›</span></a>
-  </div>
+  <!-- Day Buttons will be injected here -->
+  <div class="grid" id="day-buttons"></div>
 
-  <!-- Day 3 -->
-  <section class="section" id="day3">
-    <a class="back" href="#home">← <span class="i18n" data-zh="返回首頁" data-en="Back to Home">返回首頁</span></a>
-    <div class="hero"><div class="inner">
-      <div class="wx">
-        <div class="t i18n" data-zh="旭川/美瑛 天氣（Day 3）" data-en="Asahikawa/Biei Weather (Day 3)">旭川/美瑛 天氣（Day 3）</div><small id="wx-3-date">—</small>
-        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w3-cond">—</div></div>
-        <div class="item"><b class="i18n" data-zh="最高/最低" data-en="Max/Min">最高/最低</b> <div class="v"><span id="w3-tmax">—</span>/<span id="w3-tmin">—</span> °C</div></div>
-        <div class="item"><b class="i18n" data-zh="降水" data-en="Precip">降水</b> <div class="v" id="w3-pop">—%</div></div>
-        <div class="item"><b class="i18n" data-zh="風" data-en="Wind">風</b> <div class="v"><span id="w3-wspd">—</span> km/h · <span id="w3-wdir">—</span></div></div>
-      </div>
-      <h2>Asahiyama Zoo → Blue Pond → Ningle Terrace</h2>
-      <div class="row">
-        <div class="card">
-          <h2 class="i18n" data-zh="地圖與停車" data-en="Maps & Parking">地圖與停車</h2>
-          <ul class="kv">
-            <li>旭山動物園：
-              <a target="_blank" href="https://maps.google.com/?q=Asahiyama+Zoo">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/%E9%A7%90%E8%BB%8A%E5%A0%B4+%E6%97%AD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92">Parking A</a> ·
-              <a target="_blank" href="https://www.google.com/maps/search/parking+Asahiyama+Zoo+P2">Parking B</a>
-            </li>
-            <li>美瑛 青池：
-              <a target="_blank" href="https://maps.google.com/?q=Biei+Blue+Pond">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/%E9%9D%92%E6%B1%A0+%E9%A7%90%E8%BB%8A%E5%A0%B4">Parking A</a> ·
-              <a target="_blank" href="https://www.google.com/maps/search/parking+Blue+Pond+Biei+lot">Parking B</a>
-            </li>
-            <li>富良野 精靈露台：
-              <a target="_blank" href="https://maps.google.com/?q=Ningle+Terrace">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/parking+Ningle+Terrace">Parking A</a>
-            </li>
-          </ul>
-          <div class="hr"></div>
-          <b class="i18n" data-zh="景點圖集" data-en="Spot Galleries">景點圖集</b>
-          <ul class="kv">
-            <li><a href="#spot-penguins">🐧 旭山動物園 · 企鵝散步</a></li>
-            <li><a href="#spot-bluepond">🔵 美瑛 · 青池</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2 class="i18n" data-zh="行程備註" data-en="Notes">行程備註</h2>
-          <div class="kv i18n" data-zh="留意企鵝遊行時間；冬季道路結冰，預留緩衝。" data-en="Check penguin parade times; allow buffer for icy roads.">留意企鵝遊行時間；冬季道路結冰，預留緩衝。</div>
-        </div>
-      </div>
-    </div></div>
-  </section>
+  <!-- Sections (days) will be injected here -->
+  <div id="sections"></div>
 
-  <!-- Day 5 -->
-  <section class="section" id="day5">
-    <a class="back" href="#home">← <span class="i18n" data-zh="返回首頁" data-en="Back to Home">返回首頁</span></a>
+  <!-- Single dynamic spot section -->
+  <section class="section" id="spot" style="display:none">
+    <a class="back" id="spot-back" href="#home">← Back</a>
     <div class="hero"><div class="inner">
-      <div class="wx">
-        <div class="t i18n" data-zh="小樽 天氣（Day 5）" data-en="Otaru Weather (Day 5)">小樽 天氣（Day 5）</div><small id="wx-5-date">—</small>
-        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w5-cond">—</div></div>
-        <div class="item"><b class="i18n" data-zh="最高/最低" data-en="Max/Min">最高/最低</b> <div class="v"><span id="w5-tmax">—</span>/<span id="w5-tmin">—</span> °C</div></div>
-        <div class="item"><b class="i18n" data-zh="降水" data-en="Precip">降水</b> <div class="v" id="w5-pop">—%</div></div>
-        <div class="item"><b class="i18n" data-zh="風" data-en="Wind">風</b> <div class="v"><span id="w5-wspd">—</span> km/h · <span id="w5-wdir">—</span></div></div>
-      </div>
-      <h2>Otaru Canal · Music Box Museum · Sankaku Market</h2>
-      <div class="row">
-        <div class="card">
-          <h2 class="i18n" data-zh="地圖與停車" data-en="Maps & Parking">地圖與停車</h2>
-          <ul class="kv">
-            <li>小樽運河：
-              <a target="_blank" href="https://maps.google.com/?q=Otaru+Canal">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/%E5%B0%8F%E6%A8%BD+%E9%81%8B%E6%B2%B3+%E9%A7%90%E8%BB%8A%E5%A0%B4">Parking A</a> ·
-              <a target="_blank" href="https://www.google.com/maps/search/parking+Otaru+Canal+lot">Parking B</a>
-            </li>
-            <li>小樽音樂盒堂：
-              <a target="_blank" href="https://maps.google.com/?q=Otaru+Music+Box+Museum">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/parking+Otaru+Music+Box+Museum">Parking A</a>
-            </li>
-            <li>三角市場：
-              <a target="_blank" href="https://maps.google.com/?q=Otaru+Sankaku+Market">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/%E4%B8%89%E8%A7%92%E5%B8%82%E5%A0%B4+%E9%A7%90%E8%BB%8A%E5%A0%B4">Parking A</a>
-            </li>
-          </ul>
-          <div class="hr"></div>
-          <b class="i18n" data-zh="景點圖集" data-en="Spot Galleries">景點圖集</b>
-          <ul class="kv">
-            <li><a href="#spot-otaru">🏮 小樽運河 · 夜色</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2 class="i18n" data-zh="餐廳地圖" data-en="Dining Maps">餐廳地圖</h2>
-          <ul class="kv">
-            <li><a target="_blank" href="https://maps.google.com/?q=Tanigawa+Shokudo+Sankaku+Market">滝波食堂（三角市場）</a></li>
-            <li><a target="_blank" href="https://maps.google.com/?q=Masazushi+Otaru">政壽司 本店</a></li>
-          </ul>
-        </div>
-      </div>
-    </div></div>
-  </section>
-
-  <!-- Day 8 -->
-  <section class="section" id="day8">
-    <a class="back" href="#home">← <span class="i18n" data-zh="返回首頁" data-en="Back to Home">返回首頁</span></a>
-    <div class="hero"><div class="inner">
-      <div class="wx">
-        <div class="t i18n" data-zh="登別 天氣（Day 8）" data-en="Noboribetsu Weather (Day 8)">登別 天氣（Day 8）</div><small id="wx-8-date">—</small>
-        <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b> <div class="v" id="w8-cond">—</div></div>
-        <div class="item"><b class="i18n" data-zh="最高/最低" data-en="Max/Min">最高/最低</b> <div class="v"><span id="w8-tmax">—</span>/<span id="w8-tmin">—</span> °C</div></div>
-        <div class="item"><b class="i18n" data-zh="降水" data-en="Precip">降水</b> <div class="v" id="w8-pop">—%</div></div>
-        <div class="item"><b class="i18n" data-zh="風" data-en="Wind">風</b> <div class="v"><span id="w8-wspd">—</span> km/h · <span id="w8-wdir">—</span></div></div>
-      </div>
-      <h2>Jigokudani → Oyunuma → Onsen Street</h2>
-      <div class="row">
-        <div class="card">
-          <h2 class="i18n" data-zh="地圖與停車" data-en="Maps & Parking">地圖與停車</h2>
-          <ul class="kv">
-            <li>地獄谷：
-              <a target="_blank" href="https://maps.google.com/?q=Noboribetsu+Jigokudani">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/%E7%99%BB%E5%88%A5+%E5%9C%B0%E7%8D%84%E8%B0%B7+%E9%A7%90%E8%BB%8A%E5%A0%B4">Parking A</a> ·
-              <a target="_blank" href="https://www.google.com/maps/search/Jigokudani+parking+lot+Noboribetsu">Parking B</a>
-            </li>
-            <li>大湯沼/奧之湯：
-              <a target="_blank" href="https://maps.google.com/?q=Oyunuma+Noboribetsu">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/Oyunuma+parking+Noboribetsu">Parking A</a>
-            </li>
-            <li>泉源公園：
-              <a target="_blank" href="https://maps.google.com/?q=Gensen+Park+Noboribetsu">地圖</a> · 
-              <a target="_blank" href="https://www.google.com/maps/search/Gensen+Park+parking+Noboribetsu">Parking A</a>
-            </li>
-          </ul>
-          <div class="hr"></div>
-          <b class="i18n" data-zh="景點圖集" data-en="Spot Galleries">景點圖集</b>
-          <ul class="kv">
-            <li><a href="#spot-jigokudani">🔥 登別 · 地獄谷</a></li>
-            <li><a href="#spot-oyunuma">♨️ 登別 · 大湯沼</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2 class="i18n" data-zh="用餐建議" data-en="Food">用餐建議</h2>
-          <ul class="kv">
-            <li><a target="_blank" href="https://maps.google.com/?q=Sentei+Noboribetsu">泉亭</a></li>
-            <li><a target="_blank" href="https://maps.google.com/?q=Aji+no+Daio+Noboribetsu">味の大王（咖喱拉麵）</a></li>
-            <li><a target="_blank" href="https://maps.google.com/?q=Dai-ichi+Takimotokan">第一滝本館（住宿/溫泉）</a></li>
-          </ul>
-        </div>
-      </div>
-    </div></div>
-  </section>
-
-  <!-- Spot pages with DYNAMIC galleries (Wikimedia API) -->
-  <section class="section" id="spot-penguins">
-    <a class="back" href="#day3">← Day 3</a>
-    <div class="hero"><div class="inner">
-      <h2>Asahiyama Zoo · Penguin Parade</h2>
-      <button class="loadbtn" onclick="loadGallery(this,'Asahiyama Zoo penguin parade Hokkaido',8)">載入 8 張圖片 / Load 8 photos</button>
-      <div class="gallery"></div>
-      <p class="muted">來源：Wikimedia Commons（即時載入，含作者與授權資訊）。</p>
-    </div></div>
-  </section>
-
-  <section class="section" id="spot-bluepond">
-    <a class="back" href="#day3">← Day 3</a>
-    <div class="hero"><div class="inner">
-      <h2>Biei · Blue Pond</h2>
-      <button class="loadbtn" onclick="loadGallery(this,'Biei Blue Pond Hokkaido winter',8)">載入 8 張圖片 / Load 8 photos</button>
-      <div class="gallery"></div>
-      <p class="muted">來源：Wikimedia Commons。</p>
-    </div></div>
-  </section>
-
-  <section class="section" id="spot-otaru">
-    <a class="back" href="#day5">← Day 5</a>
-    <div class="hero"><div class="inner">
-      <h2>Otaru Canal · Night</h2>
-      <button class="loadbtn" onclick="loadGallery(this,'Otaru Canal night winter',8)">載入 8 張圖片 / Load 8 photos</button>
-      <div class="gallery"></div>
-      <p class="muted">來源：Wikimedia Commons。</p>
-    </div></div>
-  </section>
-
-  <section class="section" id="spot-jigokudani">
-    <a class="back" href="#day8">← Day 8</a>
-    <div class="hero"><div class="inner">
-      <h2>Noboribetsu · Jigokudani</h2>
-      <button class="loadbtn" onclick="loadGallery(this,'Noboribetsu Jigokudani Hell Valley',8)">載入 8 張圖片 / Load 8 photos</button>
-      <div class="gallery"></div>
-      <p class="muted">來源：Wikimedia Commons。</p>
-    </div></div>
-  </section>
-
-  <section class="section" id="spot-oyunuma">
-    <a class="back" href="#day8">← Day 8</a>
-    <div class="hero"><div class="inner">
-      <h2>Noboribetsu · Oyunuma</h2>
-      <button class="loadbtn" onclick="loadGallery(this,'Oyunuma Pond Noboribetsu',8)">載入 8 張圖片 / Load 8 photos</button>
-      <div class="gallery"></div>
-      <p class="muted">來源：Wikimedia Commons。</p>
+      <h2 id="spot-title">Spot</h2>
+      <div class="kv" id="spot-sub"></div>
+      <div class="hr"></div>
+      <div><button id="load-photos">📷 载入 8 张图片 / Load 8 photos</button></div>
+      <div class="gallery" id="gallery"></div>
+      <p class="muted" id="credit-note">照片由 Wikimedia Commons 搜尋即時載入，顯示作者與授權資訊。</p>
     </div></div>
   </section>
 </main>
 
 <script>
-// Basic i18n + weather (same as before, trimmed)
-let currentLang='zh';
+/*** Data ***/
+let currentLang = 'zh';
+
+const DAYS = [
+  { id:1, emoji:'🛬', zh:'Day 1 抵達札幌 · 住宿', en:'Day 1 Arrival Sapporo · Stay',
+    weatherPlace:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+    sights:[
+      { id:'cts', zh:'新千歲機場', en:'New Chitose Airport', map:'https://maps.google.com/?q=New+Chitose+Airport', parking:['https://www.google.com/maps/search/parking+New+Chitose+Airport'] , gallery:'New Chitose Airport Hokkaido' },
+      { id:'odori', zh:'大通公園', en:'Odori Park', map:'https://maps.google.com/?q=Odori+Park+Sapporo', parking:['https://www.google.com/maps/search/parking+Odori+Park+Sapporo'], gallery:'Odori Park Sapporo winter' }
+    ],
+    dining:[]
+  },
+  { id:2, emoji:'🦀', zh:'Day 2 場外市場＋玩雪', en:'Day 2 Curb Market + Snow Fun',
+    weatherPlace:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+    sights:[
+      { id:'curb', zh:'札幌 場外市場', en:'Sapporo Curb Market', map:'https://maps.google.com/?q=Sapporo+Curb+Market', parking:['https://www.google.com/maps/search/parking+Sapporo+Curb+Market'], gallery:'Sapporo Curb Market' },
+      { id:'takino', zh:'滝野鈴蘭 Snow World', en:'Takino Suzuran Snow World', map:'https://maps.google.com/?q=Takino+Suzuran+Hillside+National+Government+Park', parking:['https://www.google.com/maps/search/parking+Takino+Suzuran+Hillside+Park'], gallery:'Takino Suzuran winter Snow World' },
+      { id:'tanuki', zh:'狸小路商店街', en:'Tanukikoji Shopping Street', map:'https://maps.google.com/?q=Tanukikoji+Shopping+Street+Sapporo', parking:['https://www.google.com/maps/search/parking+Tanukikoji+Sapporo'], gallery:'Tanukikoji Shopping Street Sapporo' }
+    ],
+    dining:[
+      { zh:'北のグルメ亭', en:'Kitanogurume Tei', map:'https://maps.google.com/?q=Kitanogurume+Tei' },
+      { zh:'味の二幸', en:'Aji no Nikou', map:'https://maps.google.com/?q=%E5%91%B3%E3%81%AE%E4%BA%8C%E5%B9%B8+%E5%A0%B4%E5%A4%96%E5%B8%82%E5%A0%B4' }
+    ]
+  },
+  { id:3, emoji:'🐧', zh:'Day 3 旭山＋美瑛＋精靈露台', en:'Day 3 Asahiyama + Biei + Ningle Terrace',
+    weatherPlace:{name_zh:'旭川/美瑛', name_en:'Asahikawa/Biei', lat:43.7706, lon:142.3650},
+    sights:[
+      { id:'zoo', zh:'旭山動物園', en:'Asahiyama Zoo', map:'https://maps.google.com/?q=Asahiyama+Zoo', parking:['https://www.google.com/maps/search/parking+Asahiyama+Zoo'], gallery:'Asahiyama Zoo penguin parade' },
+      { id:'bluepond', zh:'美瑛 青池', en:'Biei Blue Pond', map:'https://maps.google.com/?q=Biei+Blue+Pond', parking:['https://www.google.com/maps/search/parking+Blue+Pond+Biei'], gallery:'Biei Blue Pond winter' },
+      { id:'shirahige', zh:'白鬚瀑布', en:'Shirahige Falls', map:'https://maps.google.com/?q=Shirahige+Falls+Biei', parking:['https://www.google.com/maps/search/parking+Shirahige+Falls+Biei'], gallery:'Shirahige Falls winter Biei' },
+      { id:'ningle', zh:'富良野 精靈露台', en:'Ningle Terrace', map:'https://maps.google.com/?q=Ningle+Terrace', parking:['https://www.google.com/maps/search/parking+Ningle+Terrace'], gallery:'Ningle Terrace winter' }
+    ],
+    dining:[
+      { zh:'青葉（拉麵村）', en:'Aoba (Ramen Village)', map:'https://maps.google.com/?q=Asahikawa+Ramen+Village+Aoba' },
+      { zh:'山頭火 本店', en:'Santouka Main', map:'https://maps.google.com/?q=Santouka+Asahikawa' },
+      { zh:'梅光軒', en:'Baikouken', map:'https://maps.google.com/?q=Baikouken+Asahikawa' }
+    ]
+  },
+  { id:4, emoji:'🍫', zh:'Day 4 札幌輕鬆日', en:'Day 4 Easy Sapporo Day',
+    weatherPlace:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+    sights:[
+      { id:'shiroi', zh:'白色戀人公園', en:'Shiroi Koibito Park', map:'https://maps.google.com/?q=Shiroi+Koibito+Park', parking:['https://www.google.com/maps/search/parking+Shiroi+Koibito+Park'], gallery:'Shiroi Koibito Park' },
+      { id:'jingu', zh:'北海道神宮', en:'Hokkaido Shrine', map:'https://maps.google.com/?q=Hokkaido+Jingu+Shrine', parking:['https://www.google.com/maps/search/parking+Hokkaido+Jingu'], gallery:'Hokkaido Shrine winter snow' },
+      { id:'clock', zh:'札幌時計台', en:'Sapporo Clock Tower', map:'https://maps.google.com/?q=Sapporo+Clock+Tower', parking:['https://www.google.com/maps/search/parking+Sapporo+Clock+Tower'], gallery:'Sapporo Clock Tower winter' },
+      { id:'tvtower', zh:'札幌電視塔', en:'Sapporo TV Tower', map:'https://maps.google.com/?q=Sapporo+TV+Tower', parking:['https://www.google.com/maps/search/parking+Sapporo+TV+Tower'], gallery:'Sapporo TV Tower winter' }
+    ],
+    dining:[
+      { zh:'一粒庵', en:'Ichiryuan', map:'https://maps.google.com/?q=Ichiryuan+Sapporo' },
+      { zh:'松尾成吉思汗', en:'Matsuo Genghis Khan', map:'https://maps.google.com/?q=Matsuo+Genghis+Khan+Sapporo' },
+      { zh:'Suage+ 湯咖哩', en:'Suage+ Soup Curry', map:'https://maps.google.com/?q=Suage+Soup+Curry+Sapporo' }
+    ]
+  },
+  { id:5, emoji:'🏮', zh:'Day 5 小樽一日遊', en:'Day 5 Otaru Day Trip',
+    weatherPlace:{name_zh:'小樽', name_en:'Otaru', lat:43.1907, lon:141.0028},
+    sights:[
+      { id:'canal', zh:'小樽運河', en:'Otaru Canal', map:'https://maps.google.com/?q=Otaru+Canal', parking:['https://www.google.com/maps/search/parking+Otaru+Canal'], gallery:'Otaru Canal night winter' },
+      { id:'musicbox', zh:'小樽音樂盒堂', en:'Otaru Music Box Museum', map:'https://maps.google.com/?q=Otaru+Music+Box+Museum', parking:['https://www.google.com/maps/search/parking+Otaru+Music+Box+Museum'], gallery:'Otaru Music Box Museum' },
+      { id:'sankaku', zh:'三角市場', en:'Sankaku Market', map:'https://maps.google.com/?q=Otaru+Sankaku+Market', parking:['https://www.google.com/maps/search/parking+Otaru+Sankaku+Market'], gallery:'Otaru Sankaku Market seafood' },
+      { id:'tengu', zh:'天狗山纜車', en:'Mt. Tengu Ropeway', map:'https://maps.google.com/?q=Mt+Tengu+Ropeway', parking:['https://www.google.com/maps/search/parking+Mt+Tengu+Ropeway'], gallery:'Otaru Mt Tengu Ropeway winter night view' }
+    ],
+    dining:[
+      { zh:'滝波食堂', en:'Tanigawa Shokudo', map:'https://maps.google.com/?q=Tanigawa+Shokudo+Sankaku+Market' },
+      { zh:'政壽司 本店', en:'Masazushi Honten', map:'https://maps.google.com/?q=Masazushi+Otaru' }
+    ]
+  },
+  { id:6, emoji:'❄️', zh:'Day 6 支笏湖＋Outlet', en:'Day 6 Lake Shikotsu + Outlet',
+    weatherPlace:{name_zh:'千歲/支笏湖', name_en:'Chitose/Shikotsu', lat:42.8209, lon:141.3923},
+    sights:[
+      { id:'shikotsu', zh:'支笏湖', en:'Lake Shikotsu', map:'https://maps.google.com/?q=Lake+Shikotsu', parking:['https://www.google.com/maps/search/parking+Lake+Shikotsu'], gallery:'Lake Shikotsu winter ice festival' },
+      { id:'rera', zh:'千歲 Outlet Rera', en:'Chitose Outlet Rera', map:'https://maps.google.com/?q=Chitose+Outlet+Mall+Rera', parking:['https://www.google.com/maps/search/parking+Chitose+Outlet+Mall+Rera'], gallery:'Chitose Outlet Rera' }
+    ],
+    dining:[
+      { zh:'拉麵道場（機場）', en:'Ramen Dojo (CTS)', map:'https://maps.google.com/?q=Ramen+Dojo+New+Chitose+Airport' }
+    ]
+  },
+  { id:7, emoji:'🧖', zh:'Day 7 札幌Chill', en:'Day 7 Sapporo Chill',
+    weatherPlace:{name_zh:'札幌', name_en:'Sapporo', lat:43.0618, lon:141.3545},
+    sights:[
+      { id:'jozankei', zh:'定山溪溫泉', en:'Jozankei Onsen', map:'https://maps.google.com/?q=Jozankei+Onsen', parking:['https://www.google.com/maps/search/parking+Jozankei+Onsen'], gallery:'Jozankei Onsen winter' },
+      { id:'moiwa', zh:'藻岩山纜車', en:'Mt. Moiwa Ropeway', map:'https://maps.google.com/?q=Mt+Moiwa+Ropeway', parking:['https://www.google.com/maps/search/parking+Mt+Moiwa+Ropeway'], gallery:'Mt Moiwa ropeway night view' }
+    ],
+    dining:[
+      { zh:'根室花まる', en:'Nemuro Hanamaru', map:'https://maps.google.com/?q=Nemuro+Hanamaru+Sapporo' },
+      { zh:'カレー食堂 心', en:'Curry Shokudo Kokoro', map:'https://maps.google.com/?q=Curry+Shokudo+Kokoro+Sapporo' }
+    ]
+  },
+  { id:8, emoji:'♨️', zh:'Day 8 登別住宿（登別周邊）', en:'Day 8 Noboribetsu Stay (Area)',
+    weatherPlace:{name_zh:'登別', name_en:'Noboribetsu', lat:42.4124, lon:141.1069},
+    sights:[
+      { id:'jigoku', zh:'地獄谷', en:'Jigokudani (Hell Valley)', map:'https://maps.google.com/?q=Noboribetsu+Jigokudani', parking:['https://www.google.com/maps/search/parking+Jigokudani+Noboribetsu'], gallery:'Noboribetsu Jigokudani Hell Valley winter' },
+      { id:'oyunuma', zh:'大湯沼 / 奧之湯', en:'Oyunuma / Okunoyu', map:'https://maps.google.com/?q=Oyunuma+Noboribetsu', parking:['https://www.google.com/maps/search/parking+Oyunuma+Noboribetsu'], gallery:'Oyunuma Noboribetsu winter' },
+      { id:'onsenst', zh:'溫泉街／泉源公園', en:'Onsen Street / Gensen Park', map:'https://maps.google.com/?q=Gensen+Park+Noboribetsu', parking:['https://www.google.com/maps/search/parking+Gensen+Park+Noboribetsu'], gallery:'Noboribetsu Onsen Street Gensen Park' },
+      { id:'takimotokan', zh:'第一滝本館', en:'Dai-ichi Takimotokan', map:'https://maps.google.com/?q=Dai-ichi+Takimotokan', parking:['https://www.google.com/maps/search/parking+Dai-ichi+Takimotokan'], gallery:'Dai-ichi Takimotokan onsen' }
+    ],
+    dining:[
+      { zh:'泉亭', en:'Sentei', map:'https://maps.google.com/?q=Sentei+Noboribetsu' },
+      { zh:'味の大王', en:'Aji no Daio', map:'https://maps.google.com/?q=Aji+no+Daio+Noboribetsu' }
+    ]
+  },
+  { id:9, emoji:'✈️', zh:'Day 9 返程', en:'Day 9 Departure',
+    weatherPlace:{name_zh:'千歲', name_en:'Chitose', lat:42.7752, lon:141.6923},
+    sights:[
+      { id:'takimotokan2', zh:'第一滝本館', en:'Dai-ichi Takimotokan', map:'https://maps.google.com/?q=Dai-ichi+Takimotokan', parking:['https://www.google.com/maps/search/parking+Dai-ichi+Takimotokan'], gallery:'Dai-ichi Takimotokan onsen' },
+      { id:'cts2', zh:'新千歲機場', en:'New Chitose Airport', map:'https://maps.google.com/?q=New+Chitose+Airport', parking:['https://www.google.com/maps/search/parking+New+Chitose+Airport'], gallery:'New Chitose Airport Hokkaido' }
+    ],
+    dining:[
+      { zh:'北菓樓 / 六花亭（機場）', en:'Kitakaro / Rokkatei (CTS)', map:'https://maps.google.com/?q=Kitakaro+Rokkatei+CTS' }
+    ]
+  }
+];
+
+const LOC_HOME = { lat:43.0618, lon:141.3545 };
+
 const WMO_ZH={0:'晴',1:'多雲(少)',2:'多雲(間歇)',3:'陰',45:'霧',48:'霧凍',51:'毛毛雨(輕)',53:'毛毛雨(中)',55:'毛毛雨(強)',56:'冰毛毛雨(輕)',57:'冰毛毛雨(強)',61:'小雨',63:'中雨',65:'大雨',66:'凍雨(輕)',67:'凍雨(強)',71:'小雪',73:'中雪',75:'大雪',77:'雪粒',80:'陣雨(輕)',81:'陣雨(中)',82:'陣雨(強)',85:'陣雪(輕)',86:'陣雪(強)',95:'雷雨',96:'雷雨(小冰雹)',99:'雷雨(大冰雹)'};
 const WMO_EN={0:'Clear',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Depositing rime fog',51:'Drizzle (light)',53:'Drizzle (moderate)',55:'Drizzle (dense)',56:'Freezing drizzle (light)',57:'Freezing drizzle (dense)',61:'Rain (light)',63:'Rain (moderate)',65:'Rain (heavy)',66:'Freezing rain (light)',67:'Freezing rain (heavy)',71:'Snow (light)',73:'Snow (moderate)',75:'Snow (heavy)',77:'Snow grains',80:'Rain showers (light)',81:'Rain showers (moderate)',82:'Rain showers (violent)',85:'Snow showers (light)',86:'Snow showers (heavy)',95:'Thunderstorm',96:'Thunderstorm (slight hail)',99:'Thunderstorm (heavy hail)'};
 const dirText=(deg,lang='zh')=>{const zh=['北','北北東','北東','東北東','東','東南東','南東','南南東','南','南南西','南西','西南西','西','西北西','北西','北北西']; const en=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW']; const ix=Math.round(deg/22.5)%16; return (lang==='en'?en:zh)[ix]};
-const LOC={home:{lat:43.0618,lon:141.3545},3:{lat:43.7706,lon:142.3650},5:{lat:43.1907,lon:141.0028},8:{lat:42.4124,lon:141.1069}};
 
-function qs(s,root=document){return root.querySelector(s)}; function setText(sel,v){const el=qs(sel); if(el) el.textContent=v}; function fmt(n){return (n==null||Number.isNaN(n))?'—':Math.round(n)};
-function getDates(startStr){const start=new Date(startStr); return [...Array(9)].map((_,i)=>{const d=new Date(start); d.setDate(start.getDate()+i); return d.toISOString().slice(0,10)})}
-function initStartDate(){const input=qs('#start'); if(!input.value){const t=new Date(); const y=t.getFullYear(),m=('0'+(t.getMonth()+1)).slice(-2),d=('0'+t.getDate()).slice(-2); input.value=`${y}-${m}-${d}`;}}
-async function fetchDay(lat,lon,date,lang){const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`; const r=await fetch(url); const j=await r.json(); const map=lang==='en'?WMO_EN:WMO_ZH; const i=0; const code=j.daily.weather_code[i]; return {cond:map[code]||code,tmax:j.daily.temperature_2m_max[i],tmin:j.daily.temperature_2m_min[i],pop:j.daily.precipitation_probability_max[i],wspd:j.daily.wind_speed_10m_max[i],wdir:j.daily.wind_direction_10m_dominant?.[i]};}
-async function loadWeather(){const lang=currentLang; const start=qs('#start').value; const dates=getDates(start);
-  setText('#wx-home-date',dates[0]);
-  try{const d=await fetchDay(LOC.home.lat,LOC.home.lon,dates[0],lang); setText('#wh-cond',d.cond); setText('#wh-tmax',fmt(d.tmax)); setText('#wh-tmin',fmt(d.tmin)); setText('#wh-pop',(d.pop??'—')+'%'); setText('#wh-wspd',fmt(d.wspd)); setText('#wh-wdir',d.wdir!=null?dirText(d.wdir,lang):'—');}catch(e){setText('#wh-cond',lang==='en'?'Failed':'無法取得');}
-  const pairs=[[3,'#wx-3-date','#w3-'],[5,'#wx-5-date','#w5-'],[8,'#wx-8-date','#w8-']];
-  for(const [day,idPrefix,pre] of pairs){
-    const date=day===3?dates[2]:day===5?dates[4]:dates[7];
-    setText(idPrefix,date);
-    try{const d=await fetchDay(LOC[day].lat,LOC[day].lon,date,lang); setText(pre+'cond',d.cond); setText(pre+'tmax',fmt(d.tmax)); setText(pre+'tmin',fmt(d.tmin)); setText(pre+'pop',(d.pop??'—')+'%'); setText(pre+'wspd',fmt(d.wspd)); setText(pre+'wdir',d.wdir!=null?dirText(d.wdir,lang):'—');}catch(e){setText(pre+'cond',lang==='en'?'Failed':'無法取得');}
-  }
+function qs(s,root=document){return root.querySelector(s)}; function ce(tag){return document.createElement(tag)};
+function setText(sel,v){const el=qs(sel); if(el) el.textContent=v}; function fmt(n){return (n==null||Number.isNaN(n))?'—':Math.round(n)};
+
+/*** Build UI ***/
+function buildButtons(){
+  const wrap = qs('#day-buttons');
+  wrap.innerHTML='';
+  DAYS.forEach(d=>{
+    const a=ce('a'); a.className='btn'; a.href='#day'+d.id;
+    const left=ce('div'); left.className='left';
+    const em=ce('span'); em.className='emoji'; em.textContent=d.emoji;
+    const txt=ce('span'); txt.className='i18n'; txt.setAttribute('data-zh', d.zh); txt.setAttribute('data-en', d.en); txt.textContent=d.zh;
+    const tag=ce('span'); tag.className='tag'; tag.textContent = d.weatherPlace.name_zh;
+    const chev=ce('span'); chev.className='chev'; chev.textContent='›';
+    left.appendChild(em); left.appendChild(txt);
+    a.appendChild(left); a.appendChild(tag); a.appendChild(chev);
+    wrap.appendChild(a);
+  });
 }
-function updateMode(){const isDetail=location.hash && (location.hash.startsWith('#day') || location.hash.startsWith('#spot')); document.body.className=isDetail?'detail':'home'; qs('#snow').classList.toggle('on', isDetail);}
-const applyLang=(lang)=>{currentLang=lang; document.querySelectorAll('.i18n').forEach(el=>{const zh=el.getAttribute('data-zh'); const en=el.getAttribute('data-en'); if(lang==='en'&&en) el.textContent=en; else if(zh) el.textContent=zh;}); document.getElementById('btn-zh').classList.toggle('on',lang==='zh'); document.getElementById('btn-en').classList.toggle('on',lang==='en'); loadWeather();};
-document.getElementById('btn-zh').addEventListener('click',()=>applyLang('zh')); document.getElementById('btn-en').addEventListener('click',()=>applyLang('en'));
-document.getElementById('start').addEventListener('change',loadWeather);
-window.addEventListener('hashchange',updateMode);
-initStartDate(); applyLang('zh'); updateMode(); loadWeather();
-
-// Wikimedia Commons dynamic gallery loader
-async function loadGallery(button, query, count=8){
-  const wrap = button.nextElementSibling;
-  button.disabled = true; button.textContent = (currentLang==='en'?'Loading...':'載入中…');
+function buildSections(){
+  const wrap=qs('#sections'); wrap.innerHTML='';
+  DAYS.forEach(d=>{
+    const sec=ce('section'); sec.className='section'; sec.id='day'+d.id;
+    const back=ce('a'); back.className='back'; back.href='#home'; back.innerHTML = currentLang==='en'?'← Back to Home':'← 返回首頁';
+    const hero=ce('div'); hero.className='hero'; const inner=ce('div'); inner.className='inner';
+    // Weather card
+    const wx=ce('div'); wx.className='wx';
+    const t=ce('div'); t.className='t i18n'; t.setAttribute('data-zh', d.weatherPlace.name_zh+' 天氣（Day '+d.id+'）'); t.setAttribute('data-en', d.weatherPlace.name_en+' Weather (Day '+d.id+')'); t.textContent=d.weatherPlace.name_zh+' 天氣（Day '+d.id+'）';
+    const sm=ce('small'); sm.id='wx-'+d.id+'-date'; sm.textContent='—';
+    const mkItem=(lblZh,lblEn,id)=>{const it=ce('div'); it.className='item'; const b=ce('b'); b.className='i18n'; b.setAttribute('data-zh',lblZh); b.setAttribute('data-en',lblEn); b.textContent=lblZh; const v=ce('div'); v.className='v'; v.id=id; v.textContent='—'; it.appendChild(b); it.appendChild(v); return it;};
+    wx.appendChild(t); wx.appendChild(sm);
+    wx.appendChild(mkItem('狀況','Condition','w'+d.id+'-cond'));
+    const it2=mkItem('最高/最低','Max/Min','w'+d.id+'-mm'); it2.querySelector('.v').innerHTML='<span id="w'+d.id+'-tmax">—</span>/<span id="w'+d.id+'-tmin">—</span> °C'; wx.appendChild(it2);
+    wx.appendChild(mkItem('降水','Precip','w'+d.id+'-pop'));
+    const it3=mkItem('風','Wind','w'+d.id+'-wind'); it3.querySelector('.v').innerHTML='<span id="w'+d.id+'-wspd">—</span> km/h · <span id="w'+d.id+'-wdir">—</span>'; wx.appendChild(it3);
+    inner.appendChild(wx);
+    // Title
+    const h2=ce('h2'); h2.className='i18n'; h2.setAttribute('data-zh', d.zh); h2.setAttribute('data-en', d.en); h2.textContent=d.zh; inner.appendChild(h2);
+    const row=ce('div'); row.className='row';
+    // card: Sights & Parking + gallery links
+    const c1=ce('div'); c1.className='card';
+    const h21=ce('h2'); h21.className='i18n'; h21.setAttribute('data-zh','景點與停車'); h21.setAttribute('data-en','Sights & Parking'); h21.textContent='景點與停車';
+    const ul=ce('ul'); ul.className='kv';
+    d.sights.forEach(s=>{
+      const li=ce('li');
+      const aMap=ce('a'); aMap.target='_blank'; aMap.href=s.map; aMap.textContent=(currentLang==='en'?s.en:s.zh);
+      li.appendChild(aMap);
+      s.parking.forEach((p,i)=>{ const sep=document.createTextNode(' · '); li.appendChild(sep); const a=ce('a'); a.target='_blank'; a.href=p; a.textContent = (currentLang==='en'?'Parking':'停車') + (s.parking.length>1?(' '+(i+1)):''); li.appendChild(a); });
+      const sep2=document.createTextNode(' · '); li.appendChild(sep2);
+      const aGal=ce('a'); aGal.href='#spot/'+s.id; aGal.textContent=currentLang==='en'?'📷 Gallery':'📷 圖集';
+      li.appendChild(aGal);
+      ul.appendChild(li);
+    });
+    c1.appendChild(h21); c1.appendChild(ul);
+    // card: Dining
+    const c2=ce('div'); c2.className='card';
+    const h22=ce('h2'); h22.className='i18n'; h22.setAttribute('data-zh','餐廳地圖'); h22.setAttribute('data-en','Dining Maps'); h22.textContent='餐廳地圖';
+    const ul2=ce('ul'); ul2.className='kv';
+    (d.dining||[]).forEach(r=>{ const li=ce('li'); const a=ce('a'); a.target='_blank'; a.href=r.map; a.textContent = currentLang==='en'?(r.en||r.zh):(r.zh); li.appendChild(a); ul2.appendChild(li); });
+    c2.appendChild(h22); c2.appendChild(ul2);
+    row.appendChild(c1); row.appendChild(c2);
+    inner.appendChild(row); hero.appendChild(inner);
+    sec.appendChild(back); sec.appendChild(hero);
+    wrap.appendChild(sec);
+  });
+}
+/*** Routing, modes ***/
+function updateMode(){
+  const hash = location.hash || '#home';
+  const snow = qs('#snow');
+  if(hash==='#home' || hash==='#' || hash===''){ document.body.className='home'; snow.classList.remove('on'); showOnly(null); }
+  else if(hash.startsWith('#day')){ document.body.className='detail'; snow.classList.add('on'); const id=hash.slice(4); showOnly('day'+id); }
+  else if(hash.startsWith('#spot/')){ document.body.className='detail'; snow.classList.add('on'); const sid=hash.split('/')[1]; openSpot(sid); }
+}
+function showOnly(id){
+  document.querySelectorAll('.section').forEach(s=>{ s.style.display = (id && s.id===id)?'block':'none'; });
+  // home widgets visible only on home
+  qs('.homebar').style.display = id? 'none':'flex';
+  qs('#day-buttons').style.display = id? 'none':'grid';
+}
+/*** Spot page ***/
+function findSpotById(sid){
+  for(const d of DAYS){ for(const s of d.sights){ if(s.id===sid) return {day:d, spot:s}; } }
+  return null;
+}
+function openSpot(sid){
+  const o=findSpotById(sid); if(!o){ location.hash='#home'; return; }
+  const sec=qs('#spot'); sec.style.display='block';
+  document.querySelectorAll('.section').forEach(s=>{ if(s!==sec) s.style.display='none'; });
+  qs('#spot-back').href='#day'+o.day.id;
+  qs('#spot-title').textContent = (currentLang==='en'?o.spot.en:o.spot.zh);
+  qs('#spot-sub').innerHTML = `<a target="_blank" href="${o.spot.map}">${currentLang==='en'?'Open in Google Maps':'在 Google 地圖開啟'}</a>`;
+  qs('#gallery').innerHTML='';
+}
+/*** Gallery loader (Wikimedia Commons API) ***/
+async function loadGallery(term){
+  const gal=qs('#gallery'); gal.innerHTML='Loading…';
   try{
-    const url = new URL('https://commons.wikimedia.org/w/api.php');
-    url.searchParams.set('action','query');
-    url.searchParams.set('format','json');
-    url.searchParams.set('origin','*');
-    url.searchParams.set('prop','imageinfo');
-    url.searchParams.set('generator','search');
-    url.searchParams.set('gsrsearch', query + ' filetype:bitmap');
-    url.searchParams.set('gsrlimit', count);
-    url.searchParams.set('iiprop','url|extmetadata');
-    url.searchParams.set('iiurlwidth','1024');
-    const r = await fetch(url);
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const j = await r.json();
-    const pages = j.query && j.query.pages ? Object.values(j.query.pages) : [];
-    wrap.innerHTML = '';
-    let got = 0;
-    for(const p of pages){
-      const info = p.imageinfo && p.imageinfo[0];
-      if(!info) continue;
-      const thumb = info.thumburl || info.url;
-      const meta = info.extmetadata || {};
-      const artist = meta.Artist ? (meta.Artist.value || '').replace(/<[^>]*>/g,'') : '';
-      const license = meta.LicenseShortName ? meta.LicenseShortName.value : (meta.License ? meta.License.value : '');
-      const credit = (artist?artist+' · ':'') + (license?license:'CC / GFDL');
-      const filepage = info.descriptionshorturl || info.descriptionurl || info.url;
-      wrap.insertAdjacentHTML('beforeend',
-        `<figure>
-           <a href="${filepage}" target="_blank" rel="noopener">
-             <img loading="lazy" src="${thumb}" alt="${p.title}">
-           </a>
-           <figcaption>${credit}</figcaption>
-         </figure>`);
-      got++;
-    }
-    if(got===0){
-      wrap.innerHTML = '<div class="kv">未找到圖片 / No images found.</div>';
-    }else{
-      button.textContent = (currentLang==='en'?'Reload images':'重新載入圖片');
-      button.disabled = false;
-    }
+    const url = `https://commons.wikimedia.org/w/api.php?origin=*&action=query&format=json&prop=imageinfo|info&inprop=url&generator=search&gsrnamespace=6&gsrlimit=16&gsrsearch=${encodeURIComponent(term)}`;
+    const r = await fetch(url); const j = await r.json();
+    const pages = j?.query?.pages ? Object.values(j.query.pages) : [];
+    const imgs = pages.slice(0,8).map(p=>{
+      const ii=p.imageinfo?.[0]; const src=ii?.url; const title=p.title||'';
+      const artist = ii?.extmetadata?.Artist?.value || '';
+      const license = ii?.extmetadata?.LicenseShortName?.value || ii?.extmetadata?.UsageTerms?.value || '';
+      return {src, title, artist, license, pageurl: p.canonicalurl || (ii?.descriptionshorturl)};
+    }).filter(x=>x.src);
+    gal.innerHTML='';
+    imgs.forEach(m=>{
+      const fig=document.createElement('figure');
+      const img=document.createElement('img'); img.src=m.src; img.alt=m.title;
+      const cap=document.createElement('figcaption');
+      cap.innerHTML = `${m.title ? m.title.replace('File:','') : ''} — <a target="_blank" href="${m.pageurl||'#'}">Wikimedia Commons</a>${m.artist? ' · '+m.artist:''}${m.license? ' · '+m.license:''}`;
+      fig.appendChild(img); fig.appendChild(cap); gal.appendChild(fig);
+    });
+    if(imgs.length===0){ gal.textContent = currentLang==='en'?'No images found.':'找不到圖片。'; }
   }catch(e){
-    wrap.innerHTML = '<div class="kv">載入失敗 / Failed to load.</div>';
-    button.disabled = false; button.textContent = (currentLang==='en'?'Load 8 photos':'載入 8 張圖片');
+    gal.textContent = currentLang==='en'?'Failed to load images.':'載入圖片失敗。';
   }
 }
+qs('#load-photos').addEventListener('click',()=>{
+  const title=qs('#spot-title').textContent;
+  // Find the spot to get its query
+  const o = DAYS.flatMap(d=>d.sights.map(s=>s)).find(s => s.zh===title || s.en===title);
+  const term = o ? o.gallery : title;
+  loadGallery(term);
+});
+/*** Weather ***/
+function getDates(startStr){
+  const start=new Date(startStr);
+  return [...Array(9)].map((_,i)=>{const d=new Date(start); d.setDate(start.getDate()+i); return d.toISOString().slice(0,10)});
+}
+function initStartDate(){
+  const input=qs('#start'); if(!input.value){
+    const t=new Date(); const y=t.getFullYear(),m=('0'+(t.getMonth()+1)).slice(-2),d=('0'+t.getDate()).slice(-2);
+    input.value=`${y}-${m}-${d}`;
+  }
+}
+async function fetchDay(lat, lon, date, lang){
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`;
+  const r = await fetch(url); const j = await r.json();
+  const i=0; const code=j.daily.weather_code[i];
+  const map = lang==='en'?WMO_EN:WMO_ZH;
+  return {cond:map[code]||code,tmax:j.daily.temperature_2m_max[i],tmin:j.daily.temperature_2m_min[i],pop:j.daily.precipitation_probability_max[i],wspd:j.daily.wind_speed_10m_max[i],wdir:j.daily.wind_direction_10m_dominant?.[i]};
+}
+async function loadWeather(){
+  const lang=currentLang; const start=qs('#start').value; const dates=getDates(start);
+  // Home
+  setText('#wx-home-date', dates[0]);
+  try{ const d=await fetchDay(LOC_HOME.lat, LOC_HOME.lon, dates[0], lang);
+    setText('#wh-cond', d.cond); setText('#wh-tmax', fmt(d.tmax)); setText('#wh-tmin', fmt(d.tmin));
+    setText('#wh-pop', (d.pop??'—')+'%'); setText('#wh-wspd', fmt(d.wspd)); setText('#wh-wdir', d.wdir!=null? dirText(d.wdir, lang): '—');
+  }catch(e){ setText('#wh-cond', lang==='en'?'Failed to load':'無法取得'); }
+  // Days
+  for(const d of DAYS){
+    setText('#wx-'+d.id+'-date', dates[d.id-1]);
+    try{ const w=await fetchDay(d.weatherPlace.lat, d.weatherPlace.lon, dates[d.id-1], lang);
+      setText('#w'+d.id+'-cond', w.cond); setText('#w'+d.id+'-tmax', fmt(w.tmax)); setText('#w'+d.id+'-tmin', fmt(w.tmin));
+      setText('#w'+d.id+'-pop', (w.pop??'—')+'%'); setText('#w'+d.id+'-wspd', fmt(w.wspd)); setText('#w'+d.id+'-wdir', w.wdir!=null? dirText(w.wdir, lang): '—');
+    }catch(e){ setText('#w'+d.id+'-cond', lang==='en'?'Failed to load':'無法取得'); }
+  }
+}
+/*** i18n ***/
+function applyLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.i18n').forEach(el=>{
+    const zh=el.getAttribute('data-zh'), en=el.getAttribute('data-en');
+    if(lang==='en' && en) el.textContent=en; else if(zh) el.textContent=zh;
+  });
+  qs('#btn-zh').classList.toggle('on', lang==='zh');
+  qs('#btn-en').classList.toggle('on', lang==='en');
+  // Rebuild sections to reflect language in generated bits
+  buildSections();
+  updateMode();
+  loadWeather();
+}
+/*** Audio loader for each section (keep simple: user can add file per day if needed) ***/
+function wireAudio(){
+  // Skipped in this compact version to keep code lightweight
+}
+
+/*** Init ***/
+document.getElementById('btn-zh').addEventListener('click', ()=>applyLang('zh'));
+document.getElementById('btn-en').addEventListener('click', ()=>applyLang('en'));
+document.getElementById('start').addEventListener('change', loadWeather);
+window.addEventListener('hashchange', updateMode);
+
+function init(){
+  // Home default date
+  initStartDate();
+  // Build UI
+  buildButtons();
+  buildSections();
+  // Apply language
+  applyLang('zh');
+  // Mode & Weather
+  updateMode();
+  loadWeather();
+}
+init();
 </script>
 </body>
 </html>
