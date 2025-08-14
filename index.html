@@ -3,88 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>北海道之旅 · 完整版（卡通按鈕＋飄雪＋BGM）</title>
+<title>北海道之旅 · 卡通貼紙版（飄雪＋BGM）</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --sky:#e6f3ff; --ink:#0f1630;
+  --sky:#e9f5ff; --ink:#0f1630;
   --pink1:#ff8fb1; --pink2:#ffd1e6;
-  --wxbg:#1f3b6b; --wxitem:#102947; --wxline:#3e72b9;
-  --ring:#00000016;
-  --btn1:#ffd580; --btn1b:#ffad42;
-  --btn2:#38d9b8; --btn2b:#2fb79b;
-  --btn3:#7cb6ff; --btn3b:#4590ff;
-  --btn4:#b984ff; --btn4b:#8b5cf6;
-  --btn5:#ff9e66; --btn5b:#ff7a3c;
-  --btn6:#ffa3cc; --btn6b:#ff79b5;
-  --btn7:#f6c445; --btn7b:#e4a90e;
-  --btn8:#ff6b88; --btn8b:#ff3d66;
-  --btn9:#9ad891; --btn9b:#5bbf6b;
+  --wxbg:#183a6d; --wxline:#3e72b9; --wxitem:#0f2950;
+  --ring:#00000020;
+  --c1:#ffd35a; --c2:#6ee7c8; --c3:#7fb8ff; --c4:#b28cff; --c5:#ff9f6c;
+  --c6:#ffa3d1; --c7:#f6c445; --c8:#ff6b88; --c9:#9ad891;
 }
-*{box-sizing:border-box}body{margin:0;font-family:"Baloo 2","Zen Maru Gothic",ui-rounded,system-ui;color:var(--ink)}
-header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,var(--pink1),var(--pink2));border-bottom:2px solid #ffd9ee;box-shadow:0 8px 18px #0002}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Baloo 2","Zen Maru Gothic",ui-rounded,system-ui;color:var(--ink);background:linear-gradient(180deg,var(--sky),#fff 70%)}
+header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,var(--pink1),var(--pink2));border-bottom:2px solid #ffd9ee;box-shadow:0 8px 18px #0002}
 .bar{max-width:1200px;margin:0 auto;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 h1{margin:0;font-size:22px;color:#4a1a2a;text-shadow:0 2px 0 #fff8,0 10px 20px #ff9ec244;display:flex;align-items:center;gap:10px}
-.sakura{font-size:20px;filter:drop-shadow(0 2px 0 #fff8)}
-.lang{display:flex;gap:8px}
-.lang button{border:2px solid #ffe0ec;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #0001;font-weight:800}
+.lang,.audio{display:flex;gap:8px;align-items:center}
+.lang button,.audio button{border:2px solid #fff8;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #0001;font-weight:800}
 .lang .on{background:#ffe8f2}
-.audio{display:flex;gap:8px;align-items:center}
-.audio button{border:2px solid #dfe7ff;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 12px #0001;font-weight:800}
-body.home{background:linear-gradient(180deg,var(--sky),#fff 70%)}
-main{max-width:1200px;margin:14px auto 100px;padding:0 12px;position:relative;z-index:1}
+main{max-width:1000px;margin:16px auto 100px;padding:0 14px}
 /* Snow */
 .snow,.snow:before,.snow:after{position:fixed;inset:0;pointer-events:none;content:"";background-image:
-  radial-gradient(2px 2px at 20px 30px,#fff4,#0000),radial-gradient(3px 3px at 80px 120px,#fff6,#0000),
-  radial-gradient(2px 2px at 180px 90px,#fff7,#0000),radial-gradient(2px 2px at 320px 40px,#fff8,#0000),
-  radial-gradient(3px 3px at 460px 140px,#fffa,#0000);background-repeat:repeat;animation:snow 24s linear infinite;opacity:.9;display:none;z-index:0}
-.snow.on,.snow.on:before,.snow.on:after{display:block}.snow:before{animation-duration:36s;opacity:.7}.snow:after{animation-duration:18s;opacity:1}
+  radial-gradient(2px 2px at 20px 30px,#fff6,#0000),radial-gradient(3px 3px at 80px 120px,#fff7,#0000),
+  radial-gradient(2px 2px at 180px 90px,#fff8,#0000),radial-gradient(2px 2px at 320px 40px,#fff9,#0000),
+  radial-gradient(3px 3px at 460px 140px,#ffff,#0000);background-repeat:repeat;animation:snow 24s linear infinite;opacity:.9;display:none;z-index:0}
+.snow.on,.snow.on:before,.snow.on:after{display:block}
+.snow:before{animation-duration:36s;opacity:.7}.snow:after{animation-duration:18s;opacity:1}
 @keyframes snow{from{transform:translateY(-10vh)}to{transform:translateY(10vh)}}
 /* Weather */
 .wx{margin:8px 0 16px;padding:10px;border:1px solid var(--wxline);border-radius:18px;background:var(--wxbg);color:#e8f2ff;display:flex;flex-wrap:wrap;gap:10px;align-items:center;box-shadow:0 10px 18px #0004}
 .wx .t{font-weight:900}.wx small{color:#bcd6ff}.wx .item{flex:1 1 160px;background:var(--wxitem);border:1px dashed var(--wxline);border-radius:12px;padding:8px}
 .wx .item b{font-size:12px;color:#cfe0ff}.wx .v{font-size:18px;font-weight:800}
-/* Home day buttons */
-.grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:10px}
-.daybtn{display:flex;align-items:center;gap:14px;padding:16px;border-radius:24px;color:#fff;text-decoration:none;box-shadow:0 18px 30px #0003;border:3px solid #fff8}
-.daybtn .icon{width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:inset 0 6px 10px #0001}
-.daybtn .txt{font-size:22px;font-weight:900;letter-spacing:.3px;text-shadow:0 2px 0 #0001}.daybtn .day{font-size:14px;opacity:.9}
-.daybtn:nth-child(odd){transform:rotate(-1deg) translateX(6px)}.daybtn:nth-child(even){transform:rotate(1deg) translateX(-6px)}
-.btn1{background:linear-gradient(180deg,var(--btn1),var(--btn1b))}
-.btn2{background:linear-gradient(180deg,var(--btn2),var(--btn2b))}
-.btn3{background:linear-gradient(180deg,var(--btn3),var(--btn3b))}
-.btn4{background:linear-gradient(180deg,var(--btn4),var(--btn4b))}
-.btn5{background:linear-gradient(180deg,var(--btn5),var(--btn5b))}
-.btn6{background:linear-gradient(180deg,var(--btn6),var(--btn6b))}
-.btn7{background:linear-gradient(180deg,var(--btn7),var(--btn7b))}
-.btn8{background:linear-gradient(180deg,var(--btn8),var(--btn8b))}
-.btn9{background:linear-gradient(180deg,var(--btn9),var(--btn9b))}
-/* Sections */
-.section{display:none;margin-top:20px}.section:target{display:block}
-body.detail{background:linear-gradient(180deg,#f7fbff,#fff 60%)}
+/* Sticker Grid (home) */
+.stickers{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;justify-items:center;margin-top:14px}
+@media(min-width:720px){.stickers{grid-template-columns:repeat(3,1fr)}}
+.sticker{width:120px;height:120px;border-radius:50%;position:relative;display:grid;place-items:center;text-decoration:none;color:#123;
+  box-shadow:0 12px 0 #00000030, 0 18px 30px #0005; border:3px solid #fff; background:#fff8; backdrop-filter:blur(2px)}
+.sticker .plate{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;
+  box-shadow:inset 0 10px 18px #0002;}
+.sticker .label{position:absolute;bottom:-22px;width:140px;text-align:center;font-weight:900;font-size:14px;color:#234;
+  text-shadow:0 1px 0 #fff8}
+/* wonky angles */
+.sticker:nth-child(1){transform:rotate(-6deg) translateY(2px)}
+.sticker:nth-child(2){transform:rotate(4deg) translateY(-4px)}
+.sticker:nth-child(3){transform:rotate(-2.5deg) translateY(5px)}
+.sticker:nth-child(4){transform:rotate(3.5deg) translateX(-4px)}
+.sticker:nth-child(5){transform:rotate(-5.5deg) translateX(3px)}
+.sticker:nth-child(6){transform:rotate(2.5deg)}
+.sticker:nth-child(7){transform:rotate(-3deg)}
+.sticker:nth-child(8){transform:rotate(5deg) translateY(-3px)}
+.sticker:nth-child(9){transform:rotate(-1.5deg) translateY(2px)}
+/* icon size */
+.sticker svg{width:60px;height:60px;filter:drop-shadow(0 2px 2px #0003)}
+.c1{background:linear-gradient(180deg,var(--c1),#ffb839)} .c2{background:linear-gradient(180deg,var(--c2),#2fb79b)}
+.c3{background:linear-gradient(180deg,var(--c3),#4590ff)} .c4{background:linear-gradient(180deg,var(--c4),#8b5cf6)}
+.c5{background:linear-gradient(180deg,var(--c5),#ff7a3c)} .c6{background:linear-gradient(180deg,var(--c6),#ff79b5)}
+.c7{background:linear-gradient(180deg,var(--c7),#e4a90e)} .c8{background:linear-gradient(180deg,var(--c8),#ff3d66)}
+.c9{background:linear-gradient(180deg,var(--c9),#5bbf6b)}
+/* Sections / cards */
+.section{display:none;margin-top:22px}.section:target{display:block}
 .hero{border:1px solid #e3edf8;border-radius:22px;background:#fff;box-shadow:0 18px 30px var(--ring)}.hero .inner{padding:14px}
 .row{display:grid;gap:12px;grid-template-columns:1fr}
 .card{background:#fffdfc;border:1px solid #efe6d9;border-radius:18px;box-shadow:0 10px 20px var(--ring);padding:12px}
 .card h2{margin:6px 0;font-size:18px}
 .kv{font-size:14px}
 .back{display:inline-block;margin:10px 0;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid #e3edf8;color:#123;text-decoration:none}
-/* Galleries */
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .gallery figure{margin:0;border:1px solid #e6e1d5;border-radius:12px;overflow:hidden;background:#fff}
 .gallery img{width:100%;display:block}.gallery figcaption{font-size:12px;padding:6px 8px;color:#445}
 .placeholder{display:grid;place-items:center;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#eef2f7,#eef2f7 8px,#e5ecf4 8px,#e5ecf4 16px);color:#567}
-/* Responsive */@media(min-width:640px){.row{grid-template-columns:repeat(2,1fr)}}
-svg{width:34px;height:34px}
+.thumb{width:56px;height:42px;object-fit:cover;border-radius:6px;margin-left:10px;vertical-align:middle;border:1px solid #e6e1d5}
+@media(min-width:640px){.row{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
-<body class="home">
-<div id="snow" class="snow" aria-hidden="true"></div>
+<body>
+<div id="snow" class="snow"></div>
 <header>
   <div class="bar">
-    <h1><span class="sakura">🌸</span><span class="i18n" data-zh="北海道之旅 · 完整版" data-en="Hokkaido Road Trip · Full">北海道之旅 · 完整版</span></h1>
+    <h1>🌸 北海道之旅 · 貼紙首頁</h1>
     <div class="audio">
-      <button id="bgm-toggle" class="i18n" data-zh="🎵 背景音樂：關" data-en="🎵 BGM: Off">🎵 背景音樂：關</button>
-      <button id="snow-toggle" class="i18n" data-zh="❄️ 飄雪：開" data-en="❄️ Snow: On">❄️ 飄雪：開</button>
+      <button id="bgm-toggle">🎵 背景音樂：關</button>
+      <button id="snow-toggle">❄️ 飄雪：開</button>
     </div>
     <div class="lang">
       <button id="btn-zh" class="on">中文</button>
@@ -94,53 +94,51 @@ svg{width:34px;height:34px}
 </header>
 
 <main id="app">
-  <div class="wx" id="wx-home">
-    <div class="t i18n" data-zh="札幌 天氣（Day 1）" data-en="Sapporo Weather (Day 1)">札幌 天氣（Day 1）</div>
+  <div class="wx">
+    <div class="t">札幌 天氣（Day 1）</div>
     <small id="wx-home-date">—</small>
-    <div class="item"><b class="i18n" data-zh="狀況" data-en="Condition">狀況</b><div class="v" id="wh-cond">—</div></div>
-    <div class="item"><b class="i18n" data-zh="最高/最低" data-en="Max/Min">最高/最低</b><div class="v"><span id="wh-tmax">—</span>/<span id="wh-tmin">—</span> °C</div></div>
-    <div class="item"><b class="i18n" data-zh="降水" data-en="Precip">降水</b><div class="v" id="wh-pop">—%</div></div>
-    <div class="item"><b class="i18n" data-zh="風" data-en="Wind">風</b><div class="v"><span id="wh-wspd">—</span> km/h · <span id="wh-wdir">—</span></div></div>
+    <div class="item"><b>狀況</b><div class="v" id="wh-cond">—</div></div>
+    <div class="item"><b>最高/最低</b><div class="v"><span id="wh-tmax">—</span>/<span id="wh-tmin">—</span> °C</div></div>
+    <div class="item"><b>降水</b><div class="v" id="wh-pop">—%</div></div>
+    <div class="item"><b>風</b><div class="v"><span id="wh-wspd">—</span> km/h · <span id="wh-wdir">—</span></div></div>
   </div>
 
-  <div class="grid" id="day-buttons"></div>
+  <div class="stickers" id="stickers"></div>
   <div id="sections"></div>
 </main>
 
 <script>
 let currentLang='zh';
 const ICONS={
-  plane:`<svg viewBox="0 0 24 24"><path d="M2 13l9 1 10 6-2 2-8-7-5 4-2-1 4-5-6-0z" fill="#4b4b4b"/></svg>`,
-  crab:`<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" fill="#ff3d66"/><circle cx="8.5" cy="10.5" r="1" fill="#fff"/><circle cx="15.5" cy="10.5" r="1" fill="#fff"/><path d="M4 9c2 0 2.5 1.5 3.5 2.5M20 9c-2 0-2.5 1.5-3.5 2.5" stroke="#ff3d66" stroke-width="2" stroke-linecap="round"/><path d="M4 7l3 2M20 7l-3 2" stroke="#ff3d66" stroke-width="2" stroke-linecap="round"/></svg>`,
-  penguin:`<svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 0 5 2.5 5 6v7c0 2.2-1.8 4-4 4h-2c-2.2 0-4-1.8-4-4V9c0-3.5 2-6 5-6z" fill="#1e2f57"/><ellipse cx="12" cy="11" rx="2.4" ry="3.2" fill="#fff"/><circle cx="13.2" cy="8.5" r="0.6" fill="#000"/><circle cx="10.8" cy="8.5" r="0.6" fill="#000"/><path d="M12 9.2l1.1.6-1.1.6-1.1-.6z" fill="#ffb84d"/></svg>`,
-  snowman:`<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="15" r="5" fill="#fff"/><circle cx="12" cy="8" r="3.5" fill="#fff"/><circle cx="11" cy="7.5" r="0.5"/><circle cx="13" cy="7.5" r="0.5"/><path d="M12 9.8l1.1.5-1.1.5-1.1-.5z" fill="#ffad42"/><path d="M7 10l-3-2M17 10l3-2" stroke="#333" stroke-width="2" stroke-linecap="round"/></svg>`,
+  plane:`<svg viewBox="0 0 24 24"><path d="M2 13l9 1 10 6-2 2-8-7-5 4-2-1 4-5-6-0z" fill="#fff"/></svg>`,
+  crab:`<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" fill="#fff"/><circle cx="8.5" cy="10.5" r="1" fill="#ff3d66"/><circle cx="15.5" cy="10.5" r="1" fill="#ff3d66"/><path d="M4 9c2 0 2.5 1.5 3.5 2.5M20 9c-2 0-2.5 1.5-3.5 2.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>`,
+  penguin:`<svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 0 5 2.5 5 6v7c0 2.2-1.8 4-4 4h-2c-2.2 0-4-1.8-4-4V9c0-3.5 2-6 5-6z" fill="#fff"/><ellipse cx="12" cy="11" rx="2.4" ry="3.2" fill="#000"/></svg>`,
+  snowman:`<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="15" r="5" fill="#fff"/><circle cx="12" cy="8" r="3.5" fill="#fff"/></svg>`,
   cart:`<svg viewBox="0 0 24 24" fill="none"><path d="M3 5h2l2 10h10l2-7H8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="19" r="1.5" fill="#fff"/><circle cx="17" cy="19" r="1.5" fill="#fff"/></svg>`,
-  cat:`<svg viewBox="0 0 24 24" fill="none"><path d="M6 8l-1-3 3 1 2-2 2 2 3-1-1 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/><ellipse cx="12" cy="14" rx="6" ry="5" fill="#fff"/><circle cx="10" cy="13" r="0.7"/><circle cx="14" cy="13" r="0.7"/></svg>`,
-  fatcat:`<svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="13" rx="7" ry="6" fill="#fff"/><path d="M7 9l-2-2 3 .5 2-1.5 2 1.5 3-.5-2 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>`,
+  cat:`<svg viewBox="0 0 24 24" fill="none"><path d="M6 8l-1-3 3 1 2-2 2 2 3-1-1 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/><ellipse cx="12" cy="14" rx="6" ry="5" fill="#fff"/></svg>`,
+  fatcat:`<svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="13" rx="7" ry="6" fill="#fff"/></svg>`,
   onsen:`<svg viewBox="0 0 24 24" fill="none"><path d="M4 17c4 3 12 3 16 0" stroke="#fff" stroke-width="2"/><path d="M8 6c-2 3 2 3 0 6m4-6c-2 3 2 3 0 6m4-6c-2 3 2 3 0 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>`
 };
 
 const DAYS=[
-  {id:1,btn:'btn1',icon:'plane',zh:'Day 1 抵達札幌',en:'Day 1 Arrival',place:{zh:'札幌',en:'Sapporo',lat:43.0618,lon:141.3545},
+  {id:1,icon:'plane',color:'c1',zh:'Day 1 抵達札幌',en:'Arrival',place:{lat:43.0618,lon:141.3545},
     sights:[{id:'cts',zh:'新千歲機場 → 札幌',en:'New Chitose → Sapporo',map:'https://maps.google.com/?q=New+Chitose+Airport',parking:['https://www.google.com/maps/search/parking+New+Chitose+Airport'],imgs:[
-      ['https://upload.wikimedia.org/wikipedia/commons/9/9a/New_Chitose_Airport.jpg','Wikimedia'],['https://upload.wikimedia.org/wikipedia/commons/5/52/Sapporo_skyline.jpg','Wikimedia'],null,null,null,null]}],
-    dining:[{zh:'一粒庵（味噌拉麵）',en:'Ichiryuan',map:'https://maps.google.com/?q=Ichiryuan+Sapporo'},{zh:'Suage+ 湯咖哩',en:'Suage Soup Curry',map:'https://maps.google.com/?q=Suage+Soup+Curry+Sapporo'}]
+      ['https://upload.wikimedia.org/wikipedia/commons/9/9a/New_Chitose_Airport.jpg','Wikimedia'],
+      ['https://upload.wikimedia.org/wikipedia/commons/5/52/Sapporo_skyline.jpg','Wikimedia'],null,null,null,null]}],
+    dining:[{zh:'一粒庵（味噌拉麵）',en:'Ichiryuan',map:'https://maps.google.com/?q=Ichiryuan+Sapporo'}]
   },
-  {id:2,btn:'btn2',icon:'crab',zh:'Day 2 吃蟹＋玩雪',en:'Day 2 Crab & Snow',place:{zh:'札幌',en:'Sapporo',lat:43.0618,lon:141.3545},
+  {id:2,icon:'crab',color:'c2',zh:'Day 2 吃蟹＋玩雪',en:'Crab & Snow',place:{lat:43.0618,lon:141.3545},
     sights:[
       {id:'curb',zh:'札幌 場外市場',en:'Sapporo Curb Market',map:'https://maps.google.com/?q=Sapporo+Curb+Market',parking:['https://www.google.com/maps/search/parking+Sapporo+Curb+Market'],imgs:[
         ['https://upload.wikimedia.org/wikipedia/commons/9/9a/Nijo_Fish_Market_Sapporo.jpg','Wikimedia'],
         ['https://upload.wikimedia.org/wikipedia/commons/3/38/Hokkaido_seafood_at_market_2017.jpg','Wikimedia'],null,null,null,null]},
       {id:'takino',zh:'滝野鈴蘭 Snow World',en:'Takino Suzuran Snow World',map:'https://maps.google.com/?q=Takino+Suzuran+Hillside+National+Government+Park',parking:['https://www.google.com/maps/search/parking+Takino+Suzuran+Hillside+Park'],imgs:[
         ['https://upload.wikimedia.org/wikipedia/commons/0/08/Takino_Suzuran_Park_in_winter.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/1/1a/Takino_Suzuran_Hillside_National_Government_Park_Sapporo.jpg','Wikimedia'],null,null,null,null]},
-      {id:'tanuki',zh:'狸小路商店街',en:'Tanukikoji Shopping Street',map:'https://maps.google.com/?q=Tanukikoji+Shopping+Street+Sapporo',parking:['https://www.google.com/maps/search/parking+Tanukikoji+Sapporo'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/1/11/Tanukikoji_Sapporo_2019.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/2/26/Tanukikoji_01.jpg','Wikimedia'],null,null,null,null]}
+        ['https://upload.wikimedia.org/wikipedia/commons/1/1a/Takino_Suzuran_Hillside_National_Government_Park_Sapporo.jpg','Wikimedia'],null,null,null,null]}
     ],
-    dining:[{zh:'北のグルメ亭',en:'Kitanogurume Tei',map:'https://maps.google.com/?q=Kitanogurume+Tei'},{zh:'味の二幸',en:'Aji-no-Niko',map:'https://maps.google.com/?q=%E5%91%B3%E3%81%AE%E4%BA%8C%E5%B9%B8+%E5%A0%B4%E5%A4%96%E5%B8%82%E5%A0%B4'}]
+    dining:[{zh:'北のグルメ亭',en:'Kitanogurume Tei',map:'https://maps.google.com/?q=Kitanogurume+Tei'}]
   },
-  {id:3,btn:'btn3',icon:'penguin',zh:'Day 3 旭山＋美瑛＋精靈露台',en:'Day 3 Zoo + Biei + Ningle',place:{zh:'旭川/美瑛',en:'Asahikawa/Biei',lat:43.7706,lon:142.3650},
+  {id:3,icon:'penguin',color:'c3',zh:'Day 3 旭山＋美瑛＋精靈露台',en:'Zoo + Biei + Ningle',place:{lat:43.7706,lon:142.3650},
     sights:[
       {id:'zoo',zh:'旭山動物園 企鵝散步',en:'Asahiyama Penguin Walk',map:'https://maps.google.com/?q=Asahiyama+Zoo',parking:['https://www.google.com/maps/search/parking+Asahiyama+Zoo'],imgs:[
         ['https://upload.wikimedia.org/wikipedia/commons/8/85/AsahiyamaZoo-PenguinsParade.jpg','Birdman (CC BY-SA/GFDL)'],
@@ -148,144 +146,94 @@ const DAYS=[
       {id:'bluepond',zh:'美瑛 青池',en:'Biei Blue Pond',map:'https://maps.google.com/?q=Biei+Blue+Pond',parking:['https://www.google.com/maps/search/parking+Blue+Pond+Biei'],imgs:[
         ['https://upload.wikimedia.org/wikipedia/commons/4/4f/Biei_Blue-pond.jpg','MaedaAkihiko (CC BY-SA 4.0)'],
         ['https://upload.wikimedia.org/wikipedia/commons/6/69/Aoi-ike_Blue_Pond_in_Winter_2012_%288355206648%29.jpg','Wikimedia'],null,null,null,null]},
-      {id:'shirahige',zh:'白鬚瀑布',en:'Shirahige Falls',map:'https://maps.google.com/?q=Shirahige+Falls+Biei',parking:['https://www.google.com/maps/search/parking+Shirahige+Falls+Biei'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/9/99/Shirahige_Falls_Biei.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/2/23/Shirahige_Falls_and_Blue_River.jpg','Wikimedia'],null,null,null,null]},
       {id:'ningle',zh:'富良野 精靈露台',en:'Ningle Terrace',map:'https://maps.google.com/?q=Ningle+Terrace',parking:['https://www.google.com/maps/search/parking+Ningle+Terrace'],imgs:[
         ['https://upload.wikimedia.org/wikipedia/commons/2/2e/Ningle_Terrace_in_winter.jpg','Wikimedia'],
         ['https://upload.wikimedia.org/wikipedia/commons/3/36/Ningle_Terrace_Furano.jpg','Wikimedia'],null,null,null,null]}
     ],
-    dining:[{zh:'旭川拉麵村 青葉',en:'Aoba (Ramen Village)',map:'https://maps.google.com/?q=Asahikawa+Ramen+Village+Aoba'},{zh:'山頭火 本店',en:'Santouka Honten',map:'https://maps.google.com/?q=Santouka+Asahikawa'}]
+    dining:[{zh:'旭川拉麵村 青葉',en:'Aoba (Ramen Village)',map:'https://maps.google.com/?q=Asahikawa+Ramen+Village+Aoba'}]
   },
-  {id:4,btn:'btn4',icon:'snowman',zh:'Day 4 白色戀人公園＋市區',en:'Day 4 Shiroi Koibito + City',place:{zh:'札幌',en:'Sapporo',lat:43.0618,lon:141.3545},
-    sights:[
-      {id:'white',zh:'白色戀人公園',en:'Shiroi Koibito Park',map:'https://maps.google.com/?q=Shiroi+Koibito+Park',parking:['https://www.google.com/maps/search/parking+Shiroi+Koibito+Park'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/4/49/Shiroi_Koibito_Park_2018.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/8/8a/Shiroi_Koibito_Park_clocktower.jpg','Wikimedia'],null,null,null,null]},
-      {id:'clock',zh:'札幌時計台',en:'Sapporo Clock Tower',map:'https://maps.google.com/?q=Sapporo+Clock+Tower',parking:['https://www.google.com/maps/search/parking+Sapporo+Clock+Tower'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/8/8d/Sapporo_Clock_Tower_2012.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/9/9e/Sapporo_Clock_Tower_winter.jpg','Wikimedia'],null,null,null,null]},
-      {id:'odori',zh:'大通公園＋電視塔外觀',en:'Odori Park + TV Tower',map:'https://maps.google.com/?q=Odori+Park+Sapporo',parking:['https://www.google.com/maps/search/parking+Odori+Park+Sapporo'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/5/57/Sapporo_TV_Tower.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/0/0e/Odori_Park_Sapporo_Snow.jpg','Wikimedia'],null,null,null,null]}
-    ],
-    dining:[{zh:'成吉思汗 だるま',en:'Daruma Genghis Khan',map:'https://maps.google.com/?q=Daruma+Genghis+Khan+Sapporo'}]
+  {id:4,icon:'snowman',color:'c4',zh:'Day 4 白色戀人公園＋市區',en:'Shiroi Koibito + City',place:{lat:43.0618,lon:141.3545},
+    sights:[{id:'white',zh:'白色戀人公園',en:'Shiroi Koibito Park',map:'https://maps.google.com/?q=Shiroi+Koibito+Park',parking:['https://www.google.com/maps/search/parking+Shiroi+Koibito+Park'],imgs:[
+      ['https://upload.wikimedia.org/wikipedia/commons/4/49/Shiroi_Koibito_Park_2018.jpg','Wikimedia'],
+      ['https://upload.wikimedia.org/wikipedia/commons/8/8a/Shiroi_Koibito_Park_clocktower.jpg','Wikimedia'],null,null,null,null]}],
+    dining:[]
   },
-  {id:5,btn:'btn5',icon:'cart',zh:'Day 5 小樽一日',en:'Day 5 Otaru Day',place:{zh:'小樽',en:'Otaru',lat:43.1907,lon:141.0028},
-    sights:[
-      {id:'canal',zh:'小樽運河',en:'Otaru Canal',map:'https://maps.google.com/?q=Otaru+Canal',parking:['https://www.google.com/maps/search/parking+Otaru+Canal'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/e/e2/Otaru_Canal_winter.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/f/f8/Otaru_Canal_at_night.jpg','Wikimedia'],null,null,null,null]},
-      {id:'musicbox',zh:'小樽音樂盒堂',en:'Otaru Music Box Museum',map:'https://maps.google.com/?q=Otaru+Music+Box+Museum',parking:['https://www.google.com/maps/search/parking+Otaru+Music+Box+Museum'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/3/3b/Otaru_Music_Box_Museum.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/9/9c/Otaru_Music_Box_Museum_inside.jpg','Wikimedia'],null,null,null,null]},
-      {id:'sankaku',zh:'三角市場',en:'Sankaku Market',map:'https://maps.google.com/?q=Otaru+Sankaku+Market',parking:['https://www.google.com/maps/search/parking+Otaru+Sankaku+Market'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/5/53/Otaru_Sankaku_Market.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/0/0a/Otaru_seafood.jpg','Wikimedia'],null,null,null,null]},
-      {id:'tengu',zh:'天狗山纜車夜景',en:'Mt. Tengu Ropeway',map:'https://maps.google.com/?q=Mt+Tengu+Ropeway',parking:['https://www.google.com/maps/search/parking+Mt+Tengu+Ropeway'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/9/9f/Otaru_view_from_Tenguyama.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/7/72/Otaru_Tenguyama_Ropeway.jpg','Wikimedia'],null,null,null,null]}
-    ],
+  {id:5,icon:'cart',color:'c5',zh:'Day 5 小樽一日',en:'Otaru Day',place:{lat:43.1907,lon:141.0028},
+    sights:[{id:'canal',zh:'小樽運河',en:'Otaru Canal',map:'https://maps.google.com/?q=Otaru+Canal',parking:['https://www.google.com/maps/search/parking+Otaru+Canal'],imgs:[
+      ['https://upload.wikimedia.org/wikipedia/commons/e/e2/Otaru_Canal_winter.jpg','Wikimedia'],
+      ['https://upload.wikimedia.org/wikipedia/commons/f/f8/Otaru_Canal_at_night.jpg','Wikimedia'],null,null,null,null]}],
     dining:[{zh:'政壽司',en:'Masazushi',map:'https://maps.google.com/?q=Masazushi+Otaru'}]
   },
-  {id:6,btn:'btn6',icon:'cat',zh:'Day 6 札幌休閒購物',en:'Day 6 Sapporo Leisure & Shopping',place:{zh:'札幌',en:'Sapporo',lat:43.0618,lon:141.3545},
-    sights:[
-      {id:'outlets',zh:'北廣島 三井 OUTLET',en:'Mitsui Outlet Park Kitahiroshima',map:'https://maps.google.com/?q=Mitsui+Outlet+Park+Kitahiroshima',parking:['https://www.google.com/maps/search/parking+Mitsui+Outlet+Park+Kitahiroshima'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/5/5e/Mitsui_Outlet_Park_Kitahiroshima.jpg','Wikimedia'],null,null,null,null,null]},
-      {id:'maruyama',zh:'北海道神宮＋圓山公園',en:'Hokkaido Shrine + Maruyama',map:'https://maps.google.com/?q=Hokkaido+Shrine',parking:['https://www.google.com/maps/search/parking+Hokkaido+Shrine'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/2/21/Hokkaido_Jingu_Honden.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/a/ab/Maruyama_Park_Sapporo_in_winter.jpg','Wikimedia'],null,null,null,null]}
-    ],
-    dining:[{zh:'鹽元帥 札幌',en:'Shio Gensui',map:'https://maps.google.com/?q=Shio+Gensui+Sapporo'}]
-  },
-  {id:7,btn:'btn7',icon:'fatcat',zh:'Day 7 家庭休閒／貓貓日',en:'Day 7 Family & Cats',place:{zh:'札幌',en:'Sapporo',lat:43.0618,lon:141.3545},
-    sights:[
-      {id:'catcafe',zh:'貓咖啡（示例）',en:'Cat Café',map:'https://maps.google.com/?q=Cat+Cafe+Sapporo',parking:['https://www.google.com/maps/search/parking+Sapporo+Cat+Cafe'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/7/71/Cat_cafe_interior.jpg','Wikimedia'],null,null,null,null,null]},
-      {id:'drug',zh:'松本清／驚安之殿堂',en:'Matsumoto Kiyoshi / Donki',map:'https://maps.google.com/?q=Don+Quijote+Sapporo',parking:['https://www.google.com/maps/search/parking+Don+Quijote+Sapporo'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/6/67/Don_Quijote_store.jpg','Wikimedia'],null,null,null,null,null]}
-    ],
-    dining:[{zh:'成吉思汗 蒙古烤肉',en:'Genghis Khan BBQ',map:'https://maps.google.com/?q=Genghis+Khan+BBQ+Sapporo'}]
-  },
-  {id:8,btn:'btn8',icon:'onsen',zh:'Day 8 登別溫泉區',en:'Day 8 Noboribetsu Onsen',place:{zh:'登別',en:'Noboribetsu',lat:42.4124,lon:141.1069},
-    sights:[
-      {id:'jigoku',zh:'地獄谷',en:'Jigokudani (Hell Valley)',map:'https://maps.google.com/?q=Noboribetsu+Jigokudani',parking:['https://www.google.com/maps/search/parking+Jigokudani+Noboribetsu'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/1/1a/Noboribetsu_Jigokudani.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/9/9e/Noboribetsu_Hell_Valley_in_winter.jpg','Wikimedia'],null,null,null,null]},
-      {id:'oyunuma',zh:'大湯沼／奧之湯',en:'Oyunuma / Okunoyu',map:'https://maps.google.com/?q=Oyunuma+Noboribetsu',parking:['https://www.google.com/maps/search/parking+Oyunuma+Noboribetsu'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/a/a7/Oyunuma_Pond_Noboribetsu.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/0/04/Okunoyu_Noboribetsu.jpg','Wikimedia'],null,null,null,null]},
-      {id:'onsenst',zh:'溫泉街／泉源公園',en:'Onsen Street / Gensen Park',map:'https://maps.google.com/?q=Gensen+Park+Noboribetsu',parking:['https://www.google.com/maps/search/parking+Gensen+Park+Noboribetsu'],imgs:[
-        ['https://upload.wikimedia.org/wikipedia/commons/2/28/Noboribetsu_Onsen_Street.jpg','Wikimedia'],
-        ['https://upload.wikimedia.org/wikipedia/commons/6/6e/Noboribetsu_Gensen_Park.jpg','Wikimedia'],null,null,null,null]}
-    ],
-    dining:[{zh:'望樓NOGUCHI（示例晚餐）',en:'Bourou Noguchi Dinner',map:'https://maps.google.com/?q=Noboribetsu+Noguchi'}]
-  },
-  {id:9,btn:'btn9',icon:'plane',zh:'Day 9 返程',en:'Day 9 Fly Home',place:{zh:'新千歲',en:'New Chitose',lat:42.7752,lon:141.6923},
-    sights:[{id:'fly',zh:'札幌 → 新千歲機場',en:'Sapporo → CTS',map:'https://maps.google.com/?q=New+Chitose+Airport',parking:['https://www.google.com/maps/search/parking+New+Chitose+Airport'],imgs:[
-      ['https://upload.wikimedia.org/wikipedia/commons/9/9a/New_Chitose_Airport.jpg','Wikimedia'],null,null,null,null,null]}],
+  {id:6,icon:'cat',color:'c6',zh:'Day 6 札幌休閒購物',en:'Leisure & Shopping',place:{lat:43.0618,lon:141.3545},
+    sights:[{id:'outlets',zh:'北廣島 三井 OUTLET',en:'Mitsui Outlet Park',map:'https://maps.google.com/?q=Mitsui+Outlet+Park+Kitahiroshima',parking:['https://www.google.com/maps/search/parking+Mitsui+Outlet+Park+Kitahiroshima'],imgs:[
+      ['https://upload.wikimedia.org/wikipedia/commons/5/5e/Mitsui_Outlet_Park_Kitahiroshima.jpg','Wikimedia'],null,null,null,null,null]}],
     dining:[]
-  }
+  },
+  {id:7,icon:'fatcat',color:'c7',zh:'Day 7 家庭休閒／貓貓日',en:'Family & Cats',place:{lat:43.0618,lon:141.3545},
+    sights:[{id:'catcafe',zh:'貓咖啡（示例）',en:'Cat Café',map:'https://maps.google.com/?q=Cat+Cafe+Sapporo',parking:['https://www.google.com/maps/search/parking+Sapporo+Cat+Cafe'],imgs:[
+      ['https://upload.wikimedia.org/wikipedia/commons/7/71/Cat_cafe_interior.jpg','Wikimedia'],null,null,null,null,null]}],
+    dining:[]
+  },
+  {id:8,icon:'onsen',color:'c8',zh:'Day 8 登別溫泉區',en:'Noboribetsu Onsen',place:{lat:42.4124,lon:141.1069},
+    sights:[{id:'jigoku',zh:'地獄谷',en:'Jigokudani',map:'https://maps.google.com/?q=Noboribetsu+Jigokudani',parking:['https://www.google.com/maps/search/parking+Jigokudani+Noboribetsu'],imgs:[
+      ['https://upload.wikimedia.org/wikipedia/commons/1/1a/Noboribetsu_Jigokudani.jpg','Wikimedia'],
+      ['https://upload.wikimedia.org/wikipedia/commons/9/9e/Noboribetsu_Hell_Valley_in_winter.jpg','Wikimedia'],null,null,null,null]}],
+    dining:[]
+  },
+  {id:9,icon:'plane',color:'c9',zh:'Day 9 返程',en:'Fly Home',place:{lat:42.7752,lon:141.6923},sights:[],dining:[]}
 ];
 
-const LOC_HOME={lat:43.0618,lon:141.3545};
-const WMO_ZH={0:'晴',1:'多雲(少)',2:'多雲(間歇)',3:'陰',45:'霧',48:'霧凍',51:'毛毛雨(輕)',53:'毛毛雨(中)',55:'毛毛雨(強)',56:'冰毛毛雨(輕)',57:'冰毛毛雨(強)',61:'小雨',63:'中雨',65:'大雨',66:'凍雨(輕)',67:'凍雨(強)',71:'小雪',73:'中雪',75:'大雪',77:'雪粒',80:'陣雨(輕)',81:'陣雨(中)',82:'陣雨(強)',85:'陣雪(輕)',86:'陣雪(強)',95:'雷雨',96:'雷雨(小冰雹)',99:'雷雨(大冰雹)'};
-const WMO_EN={0:'Clear',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Rime fog',51:'Drizzle (light)',53:'Drizzle (moderate)',55:'Drizzle (dense)',56:'Freezing drizzle (light)',57:'Freezing drizzle (dense)',61:'Rain (light)',63:'Rain (moderate)',65:'Rain (heavy)',66:'Freezing rain (light)',67:'Freezing rain (heavy)',71:'Snow (light)',73:'Snow (moderate)',75:'Snow (heavy)',77:'Snow grains',80:'Rain showers (light)',81:'Rain showers (moderate)',82:'Rain showers (violent)',85:'Snow showers (light)',86:'Snow showers (heavy)',95:'Thunderstorm',96:'Thunderstorm (slight hail)',99:'Thunderstorm (heavy hail)'};
-const dirText=(deg,lang='zh')=>{const zh=['北','北北東','北東','東北東','東','東南東','南東','南南東','南','南南西','南西','西南西','西','西北西','北西','北北西']; const en=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW']; const ix=Math.round(deg/22.5)%16; return (lang==='en'?en:zh)[ix]};
 function qs(s,root=document){return root.querySelector(s)}; function ce(tag){return document.createElement(tag)};
-function setText(sel,v){const el=qs(sel); if(el) el.textContent=v}; function fmt(n){return (n==null||Number.isNaN(n))?'—':Math.round(n)};
 
-/*** Build Home ***/
-function buildButtons(){
-  const wrap=qs('#day-buttons'); wrap.innerHTML='';
+/* Build stickers */
+function buildStickers(){
+  const wrap=qs('#stickers'); wrap.innerHTML='';
   DAYS.forEach(d=>{
-    const a=ce('a'); a.className='daybtn '+d.btn; a.href='#day'+d.id;
-    const icon=ce('div'); icon.className='icon'; icon.innerHTML=ICONS[d.icon];
-    const txt=ce('div'); txt.className='txt i18n'; txt.setAttribute('data-zh', d.zh); txt.setAttribute('data-en', d.en); txt.textContent=d.zh;
-    a.appendChild(icon); a.appendChild(txt); wrap.appendChild(a);
+    const a=ce('a'); a.href='#day'+d.id; a.className='sticker';
+    const plate=ce('div'); plate.className='plate '+d.color; plate.innerHTML=ICONS[d.icon];
+    const label=ce('div'); label.className='label'; label.textContent=d.zh;
+    a.appendChild(plate); a.appendChild(label); wrap.appendChild(a);
   });
 }
 
-/*** Build Day Sections ***/
+/* Build day sections */
 function buildSections(){
   const wrap=qs('#sections'); wrap.innerHTML='';
   DAYS.forEach(d=>{
     const sec=ce('section'); sec.className='section'; sec.id='day'+d.id;
-    const back=ce('a'); back.className='back i18n'; back.href='#home'; back.setAttribute('data-zh','← 返回首頁'); back.setAttribute('data-en','← Back to Home'); back.textContent=(currentLang==='en'?'← Back to Home':'← 返回首頁');
+    const back=ce('a'); back.className='back'; back.href='#home'; back.textContent='← 返回首頁';
     const hero=ce('div'); hero.className='hero'; const inner=ce('div'); inner.className='inner';
+    const h2=ce('h2'); h2.textContent=d.zh; inner.appendChild(h2);
 
     const wx=ce('div'); wx.className='wx';
-    const t=ce('div'); t.className='t i18n'; t.setAttribute('data-zh', `${d.place.zh} 天氣（Day ${d.id}）`); t.setAttribute('data-en', `${d.place.en} Weather (Day ${d.id})`); t.textContent= currentLang==='en'?`${d.place.en} Weather (Day ${d.id})`:`${d.place.zh} 天氣（Day ${d.id}）`;
-    const sm=ce('small'); sm.id='wx-'+d.id+'-date'; sm.textContent='—';
-    const mk=(zh,en,id,html)=>{const it=ce('div'); it.className='item'; const b=ce('b'); b.className='i18n'; b.setAttribute('data-zh',zh); b.setAttribute('data-en',en); b.textContent=(currentLang==='en'?en:zh); const v=ce('div'); v.className='v'; v.id=id; if(html) v.innerHTML=html; else v.textContent='—'; it.appendChild(b); it.appendChild(v); return it; };
-    wx.appendChild(t); wx.appendChild(sm);
-    wx.appendChild(mk('狀況','Condition','w'+d.id+'-cond'));
-    wx.appendChild(mk('最高/最低','Max/Min','w'+d.id+'-mm',`<span id="w${d.id}-tmax">—</span>/<span id="w${d.id}-tmin">—</span> °C`));
-    wx.appendChild(mk('降水','Precip','w'+d.id+'-pop'));
-    wx.appendChild(mk('風','Wind','w'+d.id+'-wind',`<span id="w${d.id}-wspd">—</span> km/h · <span id="w${d.id}-wdir">—</span>`));
+    wx.innerHTML=`<div class="t">${d.zh.split(' ')[0]} 天氣（Day ${d.id}）</div>
+    <small id="wx-${d.id}-date">—</small>
+    <div class="item"><b>狀況</b><div class="v" id="w${d.id}-cond">—</div></div>
+    <div class="item"><b>最高/最低</b><div class="v"><span id="w${d.id}-tmax">—</span>/<span id="w${d.id}-tmin">—</span> °C</div></div>
+    <div class="item"><b>降水</b><div class="v" id="w${d.id}-pop">—%</div></div>
+    <div class="item"><b>風</b><div class="v"><span id="w${d.id}-wspd">—</span> km/h · <span id="w${d.id}-wdir">—</span></div></div>`;
     inner.appendChild(wx);
-
-    const h2=ce('h2'); h2.className='i18n'; h2.setAttribute('data-zh', d.zh); h2.setAttribute('data-en', d.en); h2.textContent= currentLang==='en'?d.en:d.zh;
-    inner.appendChild(h2);
 
     const row=ce('div'); row.className='row';
     const c1=ce('div'); c1.className='card';
-    const h21=ce('h2'); h21.className='i18n'; h21.setAttribute('data-zh','景點與停車'); h21.setAttribute('data-en','Sights & Parking'); h21.textContent=(currentLang==='en'?'Sights & Parking':'景點與停車');
+    const h21=ce('h2'); h21.textContent='景點與停車'; c1.appendChild(h21);
     const ul=ce('ul'); ul.className='kv';
     d.sights.forEach(s=>{
       const li=ce('li');
-      const aMap=ce('a'); aMap.target='_blank'; aMap.href=s.map; aMap.textContent=currentLang==='en'?s.en:s.zh; li.appendChild(aMap);
-      s.parking.forEach((p,i)=>{ const sep=document.createTextNode(' · '); li.appendChild(sep); const a=ce('a'); a.target='_blank'; a.href=p; a.textContent=(currentLang==='en'?'Parking':'停車')+(s.parking.length>1?(' '+(i+1)):''); li.appendChild(a); });
+      const aMap=ce('a'); aMap.target='_blank'; aMap.href=s.map; aMap.textContent=s.zh; li.appendChild(aMap);
+      s.parking.forEach((p,i)=>{ const sep=document.createTextNode(' · '); li.appendChild(sep); const a=ce('a'); a.target='_blank'; a.href=p; a.textContent='停車'+(s.parking.length>1?(' '+(i+1)):''); li.appendChild(a); });
       const sep2=document.createTextNode(' · '); li.appendChild(sep2);
-      const aGal=ce('a'); aGal.href='#spot/'+s.id; aGal.textContent=currentLang==='en'?'📷 Gallery':'📷 圖集'; li.appendChild(aGal);
+      const aGal=ce('a'); aGal.href='#spot/'+s.id; aGal.textContent='📷 圖集'; li.appendChild(aGal);
+      const thumbs=(s.imgs||[]).filter(Boolean).slice(0,2);
+      thumbs.forEach(ti=>{ const timg=ce('img'); timg.className='thumb'; timg.src=ti[0]; timg.alt=s.zh; const link=ce('a'); link.href='#spot/'+s.id; link.appendChild(timg); li.appendChild(link); });
       ul.appendChild(li);
     });
-    c1.appendChild(h21); c1.appendChild(ul);
+    c1.appendChild(ul);
 
     const c2=ce('div'); c2.className='card';
-    const h22=ce('h2'); h22.className='i18n'; h22.setAttribute('data-zh','餐廳地圖'); h22.setAttribute('data-en','Dining Maps'); h22.textContent=currentLang==='en'?'Dining Maps':'餐廳地圖';
-    const ul2=ce('ul'); ul2.className='kv'; (d.dining||[]).forEach(r=>{ const li=ce('li'); const a=ce('a'); a.target='_blank'; a.href=r.map; a.textContent = currentLang==='en'?(r.en||r.zh):(r.zh); li.appendChild(a); ul2.appendChild(li); });
-    c2.appendChild(h22); c2.appendChild(ul2);
+    const h22=ce('h2'); h22.textContent='餐廳地圖'; c2.appendChild(h22);
+    const ul2=ce('ul'); ul2.className='kv'; (d.dining||[]).forEach(r=>{ const li=ce('li'); const a=ce('a'); a.target='_blank'; a.href=r.map; a.textContent=r.zh; li.appendChild(a); ul2.appendChild(li); });
+    c2.appendChild(ul2);
 
     row.appendChild(c1); row.appendChild(c2);
     inner.appendChild(row); hero.appendChild(inner);
@@ -293,67 +241,51 @@ function buildSections(){
   });
 }
 
-/*** Spot Pages ***/
+/* Spot galleries */
 function buildSpotPages(){
   const container=document.body;
   DAYS.forEach(d=>d.sights.forEach(s=>{
     const sec=ce('section'); sec.className='section'; sec.id='spot-'+s.id;
-    const back=ce('a'); back.className='back'; back.href='#day'+d.id; back.textContent=(currentLang==='en'?'← Back to Day ':'← 返回 Day ')+d.id;
+    const back=ce('a'); back.className='back'; back.href='#day'+d.id; back.textContent='← 返回 Day '+d.id;
     const hero=ce('div'); hero.className='hero'; const inner=ce('div'); inner.className='inner';
-    const h2=ce('h2'); h2.textContent= (currentLang==='en'?s.en:s.zh)+' · '+(currentLang==='en'?'Fixed Gallery':'固定圖集');
+    const h2=ce('h2'); h2.textContent=s.zh+' · 固定圖集';
     const gal=ce('div'); gal.className='gallery';
     (s.imgs||[]).forEach((it,ix)=>{
-      if(it && it[0]){ const fig=ce('figure'); const img=ce('img'); img.src=it[0]; img.alt=s.en||s.zh; const cap=ce('figcaption'); cap.textContent = it[1]||''; fig.appendChild(img); fig.appendChild(cap); gal.appendChild(fig); }
-      else{ const fig=ce('figure'); fig.className='placeholder'; const d=document.createElement('div'); d.textContent=currentLang==='en'?('To add '+(ix+1)):('待補 '+(ix+1)); fig.appendChild(d); gal.appendChild(fig); }
+      if(it&&it[0]){ const fig=ce('figure'); const img=ce('img'); img.src=it[0]; img.alt=s.zh; const cap=ce('figcaption'); cap.textContent=it[1]||''; fig.appendChild(img); fig.appendChild(cap); gal.appendChild(fig); }
+      else{ const fig=ce('figure'); fig.className='placeholder'; const d=document.createElement('div'); d.textContent='待補 '+(ix+1); fig.appendChild(d); gal.appendChild(fig); }
     });
     inner.appendChild(h2); inner.appendChild(gal); hero.appendChild(inner);
     sec.appendChild(back); container.appendChild(sec);
   }));
 }
 
-/*** Weather ***/
-function getDates(startStr){const start=new Date(startStr); return [...Array(9)].map((_,i)=>{const d=new Date(start); d.setDate(start.getDate()+i); return d.toISOString().slice(0,10)});}
-function initStart(){const t=new Date(); const y=t.getFullYear(),m=('0'+(t.getMonth()+1)).slice(-2),d=('0'+t.getDate()).slice(-2); return `${y}-${m}-${d}`;}
-async function fetchDay(lat,lon,date,lang){const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`; const r=await fetch(url); const j=await r.json(); const i=0; const code=j.daily.weather_code[i]; const map=lang==='en'?WMO_EN:WMO_ZH; return {cond:map[code]||code,tmax:j.daily.temperature_2m_max[i],tmin:j.daily.temperature_2m_min[i],pop:j.daily.precipitation_probability_max[i],wspd:j.daily.wind_speed_10m_max[i],wdir:j.daily.wind_direction_10m_dominant?.[i]};}
-async function loadWeather(){const lang=currentLang; const dates=getDates(initStart());
-  setText('#wx-home-date',dates[0]);
-  try{const d=await fetchDay(LOC_HOME.lat,LOC_HOME.lon,dates[0],lang); setText('#wh-cond',d.cond); setText('#wh-tmax',fmt(d.tmax)); setText('#wh-tmin',fmt(d.tmin)); setText('#wh-pop',(d.pop??'—')+'%'); setText('#wh-wspd',fmt(d.wspd)); setText('#wh-wdir',d.wdir!=null?dirText(d.wdir,lang):'—');}catch(e){setText('#wh-cond',lang==='en'?'Failed':'無法取得');}
-  for(const d of DAYS){ setText('#wx-'+d.id+'-date',dates[d.id-1]); try{const w=await fetchDay(d.place.lat,d.place.lon,dates[d.id-1],lang); setText('#w'+d.id+'-cond',w.cond); setText('#w'+d.id+'-tmax',fmt(w.tmax)); setText('#w'+d.id+'-tmin',fmt(w.tmin)); setText('#w'+d.id+'-pop',(w.pop??'—')+'%'); setText('#w'+d.id+'-wspd',fmt(w.wspd)); setText('#w'+d.id+'-wdir',w.wdir!=null?dirText(w.wdir,lang):'—');}catch(e){setText('#w'+d.id+'-cond',lang==='en'?'Failed':'無法取得');}}
+/* Weather minimal (Open-Meteo) */
+function dirText(deg){const zh=['北','北北東','北東','東北東','東','東南東','南東','南南東','南','南南西','南西','西南西','西','西北西','北西','北北西']; const ix=Math.round(deg/22.5)%16; return zh[ix];}
+function fmt(n){return (n==null||Number.isNaN(n))?'—':Math.round(n)}
+async function fetchDay(lat,lon,date){const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`; const r=await fetch(url); const j=await r.json(); const i=0; return {code:j.daily.weather_code[i],tmax:j.daily.temperature_2m_max[i],tmin:j.daily.temperature_2m_min[i],pop:j.daily.precipitation_probability_max[i],wspd:j.daily.wind_speed_10m_max[i],wdir:j.daily.wind_direction_10m_dominant?.[i]}}
+const WMO_ZH={0:'晴',1:'多雲(少)',2:'多雲(間歇)',3:'陰',45:'霧',48:'霧凍',51:'毛毛雨(輕)',53:'毛毛雨(中)',55:'毛毛雨(強)',56:'冰毛毛雨(輕)',57:'冰毛毛雨(強)',61:'小雨',63:'中雨',65:'大雨',66:'凍雨(輕)',67:'凍雨(強)',71:'小雪',73:'中雪',75:'大雪',77:'雪粒',80:'陣雨(輕)',81:'陣雨(中)',82:'陣雨(強)',85:'陣雪(輕)',86:'陣雪(強)',95:'雷雨',96:'雷雨(小冰雹)',99:'雷雨(大冰雹)'};
+function getDates(){const t=new Date(); const y=t.getFullYear(),m=('0'+(t.getMonth()+1)).slice(-2),d=('0'+t.getDate()).slice(-2); const start=`${y}-${m}-${d}`; const dates=[]; for(let i=0;i<9;i++){const dt=new Date(start); dt.setDate(new Date(start).getDate()+i); dates.push(dt.toISOString().slice(0,10));} return dates;}
+async function loadWeather(){const dates=getDates(); document.getElementById('wx-home-date').textContent=dates[0];
+  // home (札幌)
+  try{const d=await fetchDay(43.0618,141.3545,dates[0]); document.getElementById('wh-cond').textContent=WMO_ZH[d.code]||d.code; document.getElementById('wh-tmax').textContent=fmt(d.tmax); document.getElementById('wh-tmin').textContent=fmt(d.tmin); document.getElementById('wh-pop').textContent=(d.pop??'—')+'%'; document.getElementById('wh-wspd').textContent=fmt(d.wspd); document.getElementById('wh-wdir').textContent=d.wdir!=null?dirText(d.wdir):'—'; }catch(e){ document.getElementById('wh-cond').textContent='無法取得'; }
+  // per-day
+  for(const day of DAYS){ const boxDate=document.getElementById(`wx-${day.id}-date`); if(!boxDate) continue; boxDate.textContent=dates[day.id-1]; try{const d=await fetchDay(day.place.lat,day.place.lon,dates[day.id-1]); document.getElementById(`w${day.id}-cond`).textContent=WMO_ZH[d.code]||d.code; document.getElementById(`w${day.id}-tmax`).textContent=fmt(d.tmax); document.getElementById(`w${day.id}-tmin`).textContent=fmt(d.tmin); document.getElementById(`w${day.id}-pop`).textContent=(d.pop??'—')+'%'; document.getElementById(`w${day.id}-wspd`).textContent=fmt(d.wspd); document.getElementById(`w${day.id}-wdir`).textContent=d.wdir!=null?dirText(d.wdir):'—'; }catch(e){ document.getElementById(`w${day.id}-cond`).textContent='無法取得'; } }
 }
 
-/*** i18n ***/
-function applyLang(lang){currentLang=lang; document.querySelectorAll('.i18n').forEach(el=>{const zh=el.getAttribute('data-zh'), en=el.getAttribute('data-en'); if(lang==='en'&&en) el.textContent=en; else if(zh) el.textContent=zh;}); qs('#btn-zh').classList.toggle('on',lang==='zh'); qs('#btn-en').classList.toggle('on',lang==='en'); buildSections(); buildSpotPages(); updateMode(); loadWeather();}
-document.getElementById('btn-zh').addEventListener('click',()=>applyLang('zh')); document.getElementById('btn-en').addEventListener('click',()=>applyLang('en'));
-
-/*** Router ***/
-function updateMode(){const hash=location.hash||'#home'; const snow=qs('#snow'); if(hash==='#home'||hash==='#'||hash===''){ document.body.className='home'; snow.classList.add('on'); showOnly(null); } else if(hash.startsWith('#day')){ document.body.className='detail'; snow.classList.add('on'); showOnly(hash.substring(1)); } else if(hash.startsWith('#spot/')){ document.body.className='detail'; snow.classList.add('on'); const sid=hash.split('/')[1]; showOnly('spot-'+sid); } }
-function showOnly(id){ const secs=[...document.querySelectorAll('.section')]; secs.forEach(s=>{ s.style.display = (!id && s.id) ? 'none' : (s.id===id?'block':'none'); }); if(!id){ qs('#day-buttons').style.display='grid'; } else { qs('#day-buttons').style.display='none'; } }
+/* Router */
+function updateMode(){const hash=location.hash||'#home'; if(hash==='#home'||hash==='#'||hash===''){ showOnly(null); } else if(hash.startsWith('#day')){ showOnly(hash.substring(1)); } else if(hash.startsWith('#spot/')){ const sid=hash.split('/')[1]; showOnly('spot-'+sid); } }
+function showOnly(id){ const secs=[...document.querySelectorAll('.section')]; secs.forEach(s=>{ s.style.display = (!id && s.id) ? 'none' : (s.id===id?'block':'none'); }); if(!id){ qs('#stickers').style.display='grid'; } else { qs('#stickers').style.display='none'; } }
 window.addEventListener('hashchange',updateMode);
 
-/*** BGM via WebAudio ***/
+/* BGM */
 let audioCtx=null, master=null, isOn=false;
-function startBgm(){
-  if(isOn) return;
-  if(!audioCtx){ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); master=audioCtx.createGain(); master.gain.value=0.08; master.connect(audioCtx.destination); }
-  const notes=[261.63,329.63,392.00]; // C E G
-  notes.forEach((f,i)=>{
-    const o=audioCtx.createOscillator(); const g=audioCtx.createGain();
-    o.type='sine'; o.frequency.value=f; o.connect(g); g.connect(master);
-    g.gain.setValueAtTime(0,audioCtx.currentTime); g.gain.linearRampToValueAtTime(0.18,audioCtx.currentTime+2+i*0.2);
-    g.gain.linearRampToValueAtTime(0.12,audioCtx.currentTime+6+i*0.2);
-    g.gain.linearRampToValueAtTime(0.0,audioCtx.currentTime+14+i*0.2);
-    o.start(); setTimeout(()=>o.stop(),16000);
-  });
-  isOn=true; setTimeout(()=>{isOn=false; startBgm();},16000);
-}
+function startBgm(){ if(isOn) return; if(!audioCtx){ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); master=audioCtx.createGain(); master.gain.value=0.08; master.connect(audioCtx.destination); } const notes=[261.63,329.63,392.00]; notes.forEach((f,i)=>{ const o=audioCtx.createOscillator(); const g=audioCtx.createGain(); o.type='sine'; o.frequency.value=f; o.connect(g); g.connect(master); g.gain.setValueAtTime(0,audioCtx.currentTime); g.gain.linearRampToValueAtTime(0.18,audioCtx.currentTime+2+i*0.2); g.gain.linearRampToValueAtTime(0.12,audioCtx.currentTime+6+i*0.2); g.gain.linearRampToValueAtTime(0.0,audioCtx.currentTime+14+i*0.2); o.start(); setTimeout(()=>o.stop(),16000); }); isOn=true; setTimeout(()=>{isOn=false; startBgm();},16000); }
 function stopBgm(){ if(audioCtx){ audioCtx.suspend(); } isOn=false; }
-const btnBgm=qs('#bgm-toggle'); btnBgm.addEventListener('click',()=>{ if(!audioCtx||audioCtx.state==='suspended'){ if(audioCtx) audioCtx.resume(); startBgm(); btnBgm.textContent = currentLang==='en'?'🎵 BGM: On':'🎵 背景音樂：開'; } else { stopBgm(); btnBgm.textContent = currentLang==='en'?'🎵 BGM: Off':'🎵 背景音樂：關'; } });
+document.getElementById('bgm-toggle').addEventListener('click',()=>{ if(!audioCtx||audioCtx.state==='suspended'){ if(audioCtx) audioCtx.resume(); startBgm(); document.getElementById('bgm-toggle').textContent='🎵 背景音樂：開'; } else { stopBgm(); document.getElementById('bgm-toggle').textContent='🎵 背景音樂：關'; } });
+document.getElementById('snow-toggle').addEventListener('click',()=>{ const s=qs('#snow'); s.classList.toggle('on'); document.getElementById('snow-toggle').textContent = s.classList.contains('on')?'❄️ 飄雪：開':'❄️ 飄雪：關'; });
 
-/*** Snow toggle ***/
-const btnSnow=qs('#snow-toggle'); btnSnow.addEventListener('click',()=>{ qs('#snow').classList.toggle('on'); if(qs('#snow').classList.contains('on')){ btnSnow.textContent=currentLang==='en'?'❄️ Snow: On':'❄️ 飄雪：開'; } else { btnSnow.textContent=currentLang==='en'?'❄️ Snow: Off':'❄️ 飄雪：關'; } });
-
-/*** Init ***/
-function init(){ buildButtons(); buildSections(); buildSpotPages(); applyLang('zh'); updateMode(); loadWeather(); }
+/* Init */
+function init(){ buildStickers(); buildSections(); buildSpotPages(); updateMode(); loadWeather(); qs('#snow').classList.add('on'); }
 init();
 </script>
 </body>
